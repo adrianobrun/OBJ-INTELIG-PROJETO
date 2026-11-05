@@ -1,0 +1,1 @@
+{"name":"a4-nodered-local","version":"1.0.0","private":true,"packageManager":"pnpm@11.25.0","dependencies":{"node-red":"4.1.6","@flowfuse/node-red-dashboard":"1.32.0"}}
