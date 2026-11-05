@@ -1,0 +1,88 @@
+{
+  "client_id": "a4-47db91f2-e89456f7",
+  "session": 1,
+  "anchor_count": 32,
+  "probe_round_trip_ns": [
+    756187800,
+    760140200,
+    777251700,
+    789339800,
+    777946100,
+    764847000,
+    759887500,
+    784277300,
+    767950600,
+    788934900,
+    774100700,
+    778705200,
+    766947800,
+    754066300,
+    773696800,
+    771193200,
+    773902500,
+    774615700,
+    769031400,
+    758672900,
+    776154200,
+    758305800,
+    773265100,
+    769288700,
+    776661600,
+    974720800,
+    774637900,
+    913084600,
+    1063814500,
+    771602500,
+    763331800,
+    776682500
+  ],
+  "reported_step_ns": 10000000,
+  "max_width_ns": 1500000000,
+  "sensor": {
+    "sample_seq": 80,
+    "mqtt_seq": 10,
+    "vcd_edge_ns": 80010000000,
+    "host_edge_ns": 34219114395500,
+    "probe_before": 2027,
+    "probe_after": 2028,
+    "vcd_edge_host_interval_ns": [
+      34216788063300,
+      34218537566700
+    ],
+    "latency_interval_ns": [
+      576828700,
+      2326332300
+    ],
+    "interval_width_ns": 1749503600,
+    "midpoint_ns": 1451580500.0,
+    "half_width_ns": 874751800.0,
+    "report_interval_ms": [
+      570,
+      2330
+    ],
+    "accepted_width": false
+  },
+  "actuator": {
+    "command_id": 2001,
+    "vcd_edge_ns": 81859277534,
+    "host_edge_ns": 34219450948800,
+    "probe_before": 2029,
+    "probe_after": 2030,
+    "vcd_edge_host_interval_ns": [
+      34219450948700,
+      34220514932700
+    ],
+    "latency_interval_ns": [
+      0,
+      1063984000
+    ],
+    "interval_width_ns": 1063984000,
+    "midpoint_ns": 531992000.0,
+    "half_width_ns": 531992000.0,
+    "report_interval_ms": [
+      0,
+      1070
+    ],
+    "accepted_width": true
+  }
+}
