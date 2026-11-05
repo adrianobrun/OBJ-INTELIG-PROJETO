@@ -1,0 +1,21 @@
+WIFI OK ip=10.10.0.2
+MQTT CONNACK OK client_id=a4-47db91f2-795b5dd4 t=27390 ms
+FRAME OK n=65 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
+FRAME OK n=66 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
+FRAME OK n=67 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
+FRAME OK n=68 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
+FRAME OK n=69 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
+FRAME OK n=70 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=71 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=72 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-795b5dd4","seq":10,"uptime_ms":72481,"unit":"ug/m3","sample_seq":72,"pm1":10,"pm25":38,"pm10":38,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+FRAME OK n=73 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=74 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=75 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=76 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+FRAME OK n=77 len=28 PM1.0=10 PM2.5=38 PM10=38 ug/m3
+PILOT ACT id=1011 session=1 level=1 before_us=81973621 after_us=81973636
+BUZZER=ON PM2.5=38 freq=4000 Hz t=81976 ms
+BUZZER TEST id=1011 state=started duration_ms=500 t=81976 buzzer_on=1 alert=0
+BUZZER=OFF PM2.5=38 freq=0 Hz t=82474 ms
+BUZZER TEST id=1011 state=finished duration_ms=500 t=82474 buzzer_on=0 alert=0

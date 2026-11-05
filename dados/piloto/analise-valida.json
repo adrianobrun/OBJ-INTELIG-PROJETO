@@ -1,0 +1,72 @@
+{
+  "client_id": "a4-47db91f2-795b5dd4",
+  "session": 1,
+  "vcd_frames": 98,
+  "uart_errors": 0,
+  "sensor": {
+    "frame": {
+      "index": 73,
+      "start_ns": 72010000000,
+      "end_ns": 72043333437,
+      "pm": [
+        10,
+        38,
+        38
+      ],
+      "marker_ns": 72010000000
+    },
+    "first_changed_sample_seq": 70,
+    "first_changed_vcd_index": 71,
+    "mqtt_seq": 10,
+    "sample_seq": 72,
+    "host_receive_ns": 33413956093400,
+    "esp_publish_uptime_ms": 72481
+  },
+  "actuator": {
+    "id": 1011,
+    "duration_ms": 500,
+    "host_publish_ns": 33422837618800,
+    "vcd_marker_ns": 81973633867,
+    "esp_mark_before_us": 81973621,
+    "esp_mark_after_us": 81973636,
+    "vcd_first_rise_ns": 81975277534,
+    "marker_to_gpio_ns": 1643667,
+    "frequency_hz": 4000.0,
+    "host_ack_ns": 33423506501300,
+    "finished_esp_uptime_ms": 82474
+  },
+  "anchors": [
+    {
+      "id": 910,
+      "vcd_ns": 61375538112,
+      "host_send_ns": 33402190042700,
+      "host_receive_ns": 33402843439700,
+      "esp_before_us": 61375537,
+      "esp_after_us": 61375538
+    },
+    {
+      "id": 912,
+      "vcd_ns": 62024722425,
+      "host_send_ns": 33402843592200,
+      "host_receive_ns": 33403503132600,
+      "esp_before_us": 62024709,
+      "esp_after_us": 62024725
+    },
+    {
+      "id": 1010,
+      "vcd_ns": 81322555322,
+      "host_send_ns": 33422192448700,
+      "host_receive_ns": 33422837479200,
+      "esp_before_us": 81322554,
+      "esp_after_us": 81322555
+    },
+    {
+      "id": 1012,
+      "vcd_ns": 83113554013,
+      "host_send_ns": 33424011111700,
+      "host_receive_ns": 33424644289700,
+      "esp_before_us": 83113552,
+      "esp_after_us": 83113554
+    }
+  ]
+}
