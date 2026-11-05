@@ -1,0 +1,33 @@
+Data: 2026-11-04 (America/Sao_Paulo)
+Versão: a4-1c-reconexao com A4_TEST_NETWORK.
+Trechos observados no monitor serial.
+
+WIFI OK ip=10.10.0.2
+TEST MQTT bloqueado no inicio; X=cortar, R=restaurar
+TCP FALHOU ip=192.0.2.1 porta=1883 t=4806 ms
+TCP FALHOU ip=192.0.2.1 porta=1883 t=11739 ms
+BUZZER=ON PM2.5=51 freq=4000 Hz t=13050 ms
+TCP FALHOU ip=192.0.2.1 porta=1883 t=18523 ms
+TEST MQTT liberado t=21503 ms
+MQTT CONNACK OK client_id=a4-47db91f2-6acb80ec t=22388 ms
+TEST MQTT bloqueado t=29657 ms
+MQTT DESCONECTADO t=29657 ms
+TCP FALHOU ip=192.0.2.1 porta=1883 t=31489 ms
+BUZZER=OFF PM2.5=25 freq=0 Hz t=34050 ms
+FRAME OK n=34 len=28 PM1.0=10 PM2.5=25 PM10=30 ug/m3
+TCP FALHOU ip=192.0.2.1 porta=1883 t=38406 ms
+TCP FALHOU ip=192.0.2.1 porta=1883 t=45239 ms
+TEST MQTT liberado t=45399 ms
+MQTT CONNACK OK client_id=a4-47db91f2-6acb80ec t=46572 ms
+TIMEOUT: sem quadro valido ha 5 s
+
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":1,"uptime_ms":22408,"unit":"ug/m3","sample_seq":22,"pm1":10,"pm25":51,"pm10":51,"sample_valid":true,"alert":true}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":2,"uptime_ms":27422,"unit":"ug/m3","sample_seq":27,"pm1":10,"pm25":51,"pm10":51,"sample_valid":true,"alert":true}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":3,"uptime_ms":46592,"unit":"ug/m3","sample_seq":46,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":4,"uptime_ms":51606,"unit":"ug/m3","sample_seq":51,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":5,"uptime_ms":56623,"unit":"ug/m3","sample_seq":52,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":6,"uptime_ms":61637,"unit":"ug/m3","sample_seq":null,"pm1":null,"pm25":null,"pm10":null,"sample_valid":false,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":7,"uptime_ms":66653,"unit":"ug/m3","sample_seq":null,"pm1":null,"pm25":null,"pm10":null,"sample_valid":false,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":8,"uptime_ms":71668,"unit":"ug/m3","sample_seq":null,"pm1":null,"pm25":null,"pm10":null,"sample_valid":false,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":9,"uptime_ms":76682,"unit":"ug/m3","sample_seq":null,"pm1":null,"pm25":null,"pm10":null,"sample_valid":false,"alert":false}
+MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-1c-reconexao","client_id":"a4-47db91f2-6acb80ec","seq":10,"uptime_ms":81698,"unit":"ug/m3","sample_seq":57,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false}

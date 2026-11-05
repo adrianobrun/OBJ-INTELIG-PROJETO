@@ -1,0 +1,23 @@
+BUZZER=OFF GPIO21 | experimental: PM2.5 > 50 ug/m3 | 4000 Hz
+MQTT CONNACK OK client_id=a4-47db91f2-8b6f4595 t=3223 ms
+MQTT COMANDO TOPICO obj-intelig-projeto/a4/47db91f2/command/a4-47db91f2-8b6f4595-1
+BUZZER=ON PM2.5=25 freq=4000 Hz t=15544 ms
+BUZZER TEST id=1 state=started duration_ms=1200 t=15545 buzzer_on=1 alert=0
+BUZZER TEST id=2 state=busy duration_ms=1000 t=15794 buzzer_on=1 alert=0
+BUZZER=OFF PM2.5=25 freq=0 Hz t=16744 ms
+BUZZER TEST id=1 state=finished duration_ms=1200 t=16744 buzzer_on=0 alert=0
+MQTT COMANDO REPETIDO id=1
+MQTT COMANDO INVALIDO
+BUZZER=ON PM2.5=51 freq=4000 Hz t=36051 ms
+BUZZER TEST id=3 state=started duration_ms=700 t=41877 buzzer_on=1 alert=1
+BUZZER TEST id=3 state=finished duration_ms=700 t=42577 buzzer_on=1 alert=1
+BUZZER=OFF PM2.5=25 freq=0 Hz t=48049 ms
+MQTT DESCONECTADO t=60992 ms
+MQTT CONNACK OK client_id=a4-47db91f2-8b6f4595 t=61858 ms
+MQTT COMANDO TOPICO obj-intelig-projeto/a4/47db91f2/command/a4-47db91f2-8b6f4595-2
+BUZZER=ON PM2.5=25 freq=4000 Hz t=78051 ms
+BUZZER TEST id=1 state=started duration_ms=1500 t=78052 buzzer_on=1 alert=0
+BUZZER=OFF PM2.5=25 freq=0 Hz t=79551 ms
+BUZZER TEST id=1 state=finished duration_ms=1500 t=79551 buzzer_on=0 alert=0
+MQTT COMANDO INVALIDO
+MQTT COMANDO INVALIDO

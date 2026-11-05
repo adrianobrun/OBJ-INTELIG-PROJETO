@@ -1,0 +1,2 @@
+{"timestamp_utc": "2026-11-04T22:34:42.958+00:00", "event": "connect", "broker": "test.mosquitto.org", "port": 8081, "transport": "websockets"}
+{"timestamp_utc": "2026-11-04T22:34:46.733+00:00", "event": "connect_error", "detail": "WebSocket handshake error"}

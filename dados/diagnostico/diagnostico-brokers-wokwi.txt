@@ -1,0 +1,15 @@
+2026-11-04 | America/Sao_Paulo
+Trechos observados no monitor serial do ESP32-S3 no Wokwi.
+Arduino-ESP32 3.3.12 | ESP-IDF v5.5.5
+DIAG WIFI status=3 ip=10.10.0.2
+DIAG 1 DNS OK test.mosquitto.org 54.36.178.49
+DIAG 1 TCP FAIL test.mosquitto.org:1883 elapsed_ms=6004
+DIAG 1 DNS OK broker.emqx.io 44.232.241.40
+DIAG 1 TCP OK broker.emqx.io:1883 elapsed_ms=250
+DIAG 1 MQTT CONNACK broker.emqx.io state=0 elapsed_ms=217
+DIAG 2 DNS OK test.mosquitto.org 54.36.178.49
+DIAG 2 TCP FAIL test.mosquitto.org:1883 elapsed_ms=6004
+DIAG 2 DNS OK broker.emqx.io 44.232.241.40
+DIAG 2 TCP OK broker.emqx.io:1883 elapsed_ms=250
+DIAG 2 MQTT CONNACK broker.emqx.io state=0 elapsed_ms=250
+DIAG DONE

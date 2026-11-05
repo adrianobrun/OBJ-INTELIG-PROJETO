@@ -1,0 +1,25 @@
+{"timestamp_utc": "2026-11-04T22:59:04.370+00:00", "event": "dns", "host": "test.mosquitto.org", "family": "IPv4", "addresses": ["54.36.178.49"]}
+{"timestamp_utc": "2026-11-04T22:59:04.572+00:00", "event": "dns", "host": "test.mosquitto.org", "family": "IPv6", "addresses": ["2001:41d0:303:4831::1"]}
+{"timestamp_utc": "2026-11-04T22:59:04.580+00:00", "event": "dns", "host": "broker.emqx.io", "family": "IPv4", "addresses": ["34.243.217.54", "44.232.241.40"]}
+{"timestamp_utc": "2026-11-04T22:59:05.111+00:00", "event": "dns_error", "host": "broker.emqx.io", "family": "IPv6", "detail": "[Errno 11001] getaddrinfo failed"}
+{"timestamp_utc": "2026-11-04T22:59:05.346+00:00", "event": "tcp_ok", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 8886, "mode": "mqtt_tls", "attempt": 1, "elapsed_ms": 233}
+{"timestamp_utc": "2026-11-04T22:59:05.346+00:00", "event": "tcp_ok", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 443, "mode": "https_tls", "attempt": 1, "elapsed_ms": 233}
+{"timestamp_utc": "2026-11-04T22:59:05.375+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 1, "elapsed_ms": 263}
+{"timestamp_utc": "2026-11-04T22:59:05.586+00:00", "event": "tls_ok", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 443, "mode": "https_tls", "attempt": 1, "protocol": "TLSv1.3", "elapsed_ms": 240}
+{"timestamp_utc": "2026-11-04T22:59:05.597+00:00", "event": "tls_ok", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 8886, "mode": "mqtt_tls", "attempt": 1, "protocol": "TLSv1.3", "elapsed_ms": 252}
+{"timestamp_utc": "2026-11-04T22:59:05.804+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 1, "packet": "20020000", "code": 0, "elapsed_ms": 428}
+{"timestamp_utc": "2026-11-04T22:59:05.818+00:00", "event": "error", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 8886, "mode": "mqtt_tls", "attempt": 1, "stage": "connack", "error_type": "ConnectionError", "elapsed_ms": 221, "detail": "peer closed, response="}
+{"timestamp_utc": "2026-11-04T22:59:06.348+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 1, "elapsed_ms": 1236}
+{"timestamp_utc": "2026-11-04T22:59:06.758+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 1, "packet": "20020000", "code": 0, "elapsed_ms": 410}
+{"timestamp_utc": "2026-11-04T22:59:11.122+00:00", "event": "error", "host": "test.mosquitto.org", "ip": "2001:41d0:303:4831::1", "port": 1883, "mode": "mqtt", "attempt": 1, "stage": "tcp", "error_type": "TimeoutError", "elapsed_ms": 6010, "detail": "timed out"}
+{"timestamp_utc": "2026-11-04T22:59:11.122+00:00", "event": "error", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 1883, "mode": "mqtt", "attempt": 1, "stage": "tcp", "error_type": "TimeoutError", "elapsed_ms": 6010, "detail": "timed out"}
+{"timestamp_utc": "2026-11-04T22:59:11.340+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 2, "elapsed_ms": 218}
+{"timestamp_utc": "2026-11-04T22:59:11.346+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 2, "elapsed_ms": 224}
+{"timestamp_utc": "2026-11-04T22:59:11.751+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 2, "packet": "20020000", "code": 0, "elapsed_ms": 411}
+{"timestamp_utc": "2026-11-04T22:59:11.771+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 2, "packet": "20020000", "code": 0, "elapsed_ms": 426}
+{"timestamp_utc": "2026-11-04T22:59:17.130+00:00", "event": "error", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 1883, "mode": "mqtt", "attempt": 2, "stage": "tcp", "error_type": "TimeoutError", "elapsed_ms": 6009, "detail": "timed out"}
+{"timestamp_utc": "2026-11-04T22:59:17.351+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 3, "elapsed_ms": 220}
+{"timestamp_utc": "2026-11-04T22:59:17.358+00:00", "event": "tcp_ok", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 3, "elapsed_ms": 227}
+{"timestamp_utc": "2026-11-04T22:59:17.758+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "44.232.241.40", "port": 1883, "mode": "mqtt", "attempt": 3, "packet": "20020000", "code": 0, "elapsed_ms": 407}
+{"timestamp_utc": "2026-11-04T22:59:17.779+00:00", "event": "connack", "host": "broker.emqx.io", "ip": "34.243.217.54", "port": 1883, "mode": "mqtt", "attempt": 3, "packet": "20020000", "code": 0, "elapsed_ms": 421}
+{"timestamp_utc": "2026-11-04T22:59:23.136+00:00", "event": "error", "host": "test.mosquitto.org", "ip": "54.36.178.49", "port": 1883, "mode": "mqtt", "attempt": 3, "stage": "tcp", "error_type": "TimeoutError", "elapsed_ms": 6006, "detail": "timed out"}

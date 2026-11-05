@@ -1,0 +1,43 @@
+void networkTask(void *) {
+  constexpr const char *BROKERS[] = {"test.mosquitto.org", "broker.emqx.io"};
+  constexpr uint16_t PORT = 1883;
+  constexpr int32_t TCP_TIMEOUT_MS = 6000;
+  WiFi.mode(WIFI_STA);
+  WiFi.begin("Wokwi-GUEST", "", 6);
+  uint32_t wifiStarted = millis();
+  while (WiFi.status() != WL_CONNECTED && millis() - wifiStarted < 15000) {
+    vTaskDelay(pdMS_TO_TICKS(20));
+  }
+  Serial0.printf("DIAG WIFI status=%d ip=%s\n", WiFi.status(), WiFi.localIP().toString().c_str());
+  if (WiFi.status() == WL_CONNECTED) {
+    for (int round = 1; round <= 2; ++round) {
+      for (const char *host : BROKERS) {
+        IPAddress address;
+        if (!WiFi.hostByName(host, address)) {
+          Serial0.printf("DIAG %d DNS FAIL %s\n", round, host);
+          continue;
+        }
+        Serial0.printf("DIAG %d DNS OK %s %s\n", round, host, address.toString().c_str());
+        WiFiClient tcp;
+        uint32_t started = millis();
+        bool tcpOK = tcp.connect(address, PORT, TCP_TIMEOUT_MS);
+        Serial0.printf("DIAG %d TCP %s %s:%u elapsed_ms=%lu\n", round,
+                       tcpOK ? "OK" : "FAIL", host, PORT, (unsigned long)(millis() - started));
+        if (tcpOK) {
+          PubSubClient mqtt(tcp);
+          mqtt.setSocketTimeout(4);
+          char clientId[24];
+          snprintf(clientId, sizeof(clientId), "a4diag-%08lx", (unsigned long)esp_random());
+          started = millis();
+          bool mqttOK = mqtt.setServer(address, PORT).connect(clientId);
+          Serial0.printf("DIAG %d MQTT %s %s state=%d elapsed_ms=%lu\n", round,
+                         mqttOK ? "CONNACK" : "FAIL", host, mqtt.state(), (unsigned long)(millis() - started));
+          if (mqttOK) mqtt.disconnect();
+        }
+        tcp.stop();
+      }
+    }
+  }
+  Serial0.println("DIAG DONE");
+  vTaskDelete(nullptr);
+}
