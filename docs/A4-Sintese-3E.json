@@ -1,0 +1,398 @@
+{
+  "stage": "3E",
+  "unit": "ms",
+  "source": "dados/medicoes/medicoes.json",
+  "source_sha256": "879679691491b3d7fb924733a00e47d9e845ee28262cd244f29dbc22baf80ee1",
+  "results": {
+    "sensor": {
+      "route": "Sensor PMS5003 até o cliente MQTT",
+      "measurements": [
+        {
+          "measurement": 1,
+          "attempt": "01",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-f566bbd8",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 28,
+          "identifiers": {
+            "sample_seq": 81,
+            "mqtt_seq": 16,
+            "vcd_frame": 82
+          },
+          "start": {
+            "event": "geracao_do_quadro_NC7",
+            "clock": "VCD",
+            "ns": 81010000000
+          },
+          "end": {
+            "event": "entrada_callback_MQTT",
+            "clock": "QPC",
+            "ns": 34708879313400
+          },
+          "probe_before": 4049,
+          "probe_after": 4050,
+          "raw_latency_ns": [
+            794083500,
+            1853018400
+          ],
+          "report_latency_ms": [
+            790,
+            1860
+          ],
+          "midpoint_report_ms": 1320,
+          "evidence": [
+            "01/captura.vcd",
+            "01/mqtt.jsonl",
+            "01/serial.txt",
+            "01/analise.json",
+            "01/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 2,
+          "attempt": "02",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-96c067f7",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 33,
+          "identifiers": {
+            "sample_seq": 48,
+            "mqtt_seq": 8,
+            "vcd_frame": 49
+          },
+          "start": {
+            "event": "geracao_do_quadro_NC7",
+            "clock": "VCD",
+            "ns": 48010000000
+          },
+          "end": {
+            "event": "entrada_callback_MQTT",
+            "clock": "QPC",
+            "ns": 34849193040500
+          },
+          "probe_before": 4134,
+          "probe_after": 4135,
+          "raw_latency_ns": [
+            239491000,
+            1092101800
+          ],
+          "report_latency_ms": [
+            230,
+            1100
+          ],
+          "midpoint_report_ms": 670,
+          "evidence": [
+            "02/captura.vcd",
+            "02/mqtt.jsonl",
+            "02/serial.txt",
+            "02/analise.json",
+            "02/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 3,
+          "attempt": "03",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-f862a4a3",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 38,
+          "identifiers": {
+            "sample_seq": 63,
+            "mqtt_seq": 13,
+            "vcd_frame": 64
+          },
+          "start": {
+            "event": "geracao_do_quadro_NC7",
+            "clock": "VCD",
+            "ns": 63010000000
+          },
+          "end": {
+            "event": "entrada_callback_MQTT",
+            "clock": "QPC",
+            "ns": 35059019701100
+          },
+          "probe_before": 4232,
+          "probe_after": 4233,
+          "raw_latency_ns": [
+            473387600,
+            1317184900
+          ],
+          "report_latency_ms": [
+            470,
+            1320
+          ],
+          "midpoint_report_ms": 900,
+          "evidence": [
+            "03/captura.vcd",
+            "03/mqtt.jsonl",
+            "03/serial.txt",
+            "03/analise.json",
+            "03/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 4,
+          "attempt": "04",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-ac6f535a",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 45,
+          "identifiers": {
+            "sample_seq": 46,
+            "mqtt_seq": 6,
+            "vcd_frame": 47
+          },
+          "start": {
+            "event": "geracao_do_quadro_NC7",
+            "clock": "VCD",
+            "ns": 46010000000
+          },
+          "end": {
+            "event": "entrada_callback_MQTT",
+            "clock": "QPC",
+            "ns": 35216482012000
+          },
+          "probe_before": 4331,
+          "probe_after": 4332,
+          "raw_latency_ns": [
+            540480000,
+            1478686600
+          ],
+          "report_latency_ms": [
+            540,
+            1480
+          ],
+          "midpoint_report_ms": 1010,
+          "evidence": [
+            "04/captura.vcd",
+            "04/mqtt.jsonl",
+            "04/serial.txt",
+            "04/analise.json",
+            "04/intervalos.json"
+          ]
+        }
+      ],
+      "mean_raw_bounds_ns": [
+        "511860525",
+        "1435247925"
+      ],
+      "mean_interval_ms": [
+        510,
+        1440
+      ],
+      "mean_estimate_ms": 970
+    },
+    "actuator": {
+      "route": "Publicação MQTT até o buzzer",
+      "measurements": [
+        {
+          "measurement": 1,
+          "attempt": "01",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-f566bbd8",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 28,
+          "identifiers": {
+            "command_id": 4001
+          },
+          "start": {
+            "event": "inicio_publicacao_MQTT",
+            "clock": "QPC",
+            "ns": 34708879440700
+          },
+          "end": {
+            "event": "primeira_subida_GPIO21",
+            "clock": "VCD",
+            "ns": 82649277664
+          },
+          "probe_before": 4055,
+          "probe_after": 4056,
+          "raw_latency_ns": [
+            0,
+            1143387800
+          ],
+          "report_latency_ms": [
+            0,
+            1150
+          ],
+          "midpoint_report_ms": 570,
+          "evidence": [
+            "01/captura.vcd",
+            "01/mqtt.jsonl",
+            "01/serial.txt",
+            "01/analise.json",
+            "01/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 2,
+          "attempt": "02",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-96c067f7",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 33,
+          "identifiers": {
+            "command_id": 4101
+          },
+          "start": {
+            "event": "inicio_publicacao_MQTT",
+            "clock": "QPC",
+            "ns": 34849193147000
+          },
+          "end": {
+            "event": "primeira_subida_GPIO21",
+            "clock": "VCD",
+            "ns": 49080277213
+          },
+          "probe_before": 4137,
+          "probe_after": 4138,
+          "raw_latency_ns": [
+            0,
+            797360400
+          ],
+          "report_latency_ms": [
+            0,
+            800
+          ],
+          "midpoint_report_ms": 400,
+          "evidence": [
+            "02/captura.vcd",
+            "02/mqtt.jsonl",
+            "02/serial.txt",
+            "02/analise.json",
+            "02/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 3,
+          "attempt": "03",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-f862a4a3",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 38,
+          "identifiers": {
+            "command_id": 4201
+          },
+          "start": {
+            "event": "inicio_publicacao_MQTT",
+            "clock": "QPC",
+            "ns": 35059019821400
+          },
+          "end": {
+            "event": "primeira_subida_GPIO21",
+            "clock": "VCD",
+            "ns": 64180277655
+          },
+          "probe_before": 4236,
+          "probe_after": 4237,
+          "raw_latency_ns": [
+            0,
+            907365500
+          ],
+          "report_latency_ms": [
+            0,
+            910
+          ],
+          "midpoint_report_ms": 450,
+          "evidence": [
+            "03/captura.vcd",
+            "03/mqtt.jsonl",
+            "03/serial.txt",
+            "03/analise.json",
+            "03/intervalos.json"
+          ]
+        },
+        {
+          "measurement": 4,
+          "attempt": "04",
+          "firmware": "a4-3b-piloto",
+          "client_id": "a4-47db91f2-ac6f535a",
+          "session": 1,
+          "initial_pm25_ug_m3": 20,
+          "stimulus_pm25_ug_m3": 45,
+          "identifiers": {
+            "command_id": 4301
+          },
+          "start": {
+            "event": "inicio_publicacao_MQTT",
+            "clock": "QPC",
+            "ns": 35216482170200
+          },
+          "end": {
+            "event": "primeira_subida_GPIO21",
+            "clock": "VCD",
+            "ns": 47332277384
+          },
+          "probe_before": 4336,
+          "probe_after": 4337,
+          "raw_latency_ns": [
+            0,
+            1102498000
+          ],
+          "report_latency_ms": [
+            0,
+            1110
+          ],
+          "midpoint_report_ms": 550,
+          "evidence": [
+            "04/captura.vcd",
+            "04/mqtt.jsonl",
+            "04/serial.txt",
+            "04/analise.json",
+            "04/intervalos.json"
+          ]
+        }
+      ],
+      "mean_raw_bounds_ns": [
+        "0",
+        "987652925"
+      ],
+      "mean_interval_ms": [
+        0,
+        990
+      ],
+      "mean_estimate_ms": 490
+    }
+  },
+  "evidence": {
+    "Figura-1-Montagem-Wokwi.jpg": {
+      "origin": "dados/testes-integrados/13-antes-da-queda-wokwi.jpg",
+      "record": "dados/testes-integrados/13-antes-da-queda.json",
+      "sha256": "a9d765cfa76de16d60aef88edfe5cf7cf8670867a381119e41bdce3f23b541e7",
+      "caption": "Montagem em operação no Wokwi. O ESP32-S3 lê o PMS5003 simulado pela UART. O OLED mostra PM1.0, PM2.5 e PM10 de 10, 25 e 30 µg/m³, com estado NORMAL. A serial mostra o pacote de telemetria correspondente."
+    },
+    "Figura-2-Alerta-OLED.jpg": {
+      "origin": "dados/testes-integrados/14-queda-com-alerta-local-wokwi.jpg",
+      "record": "dados/testes-integrados/14-queda-com-alerta-local.json",
+      "sha256": "ef3f45a80a88589fe80c1d331f41f72cf37778024594eee25b6433ec304ba4c1",
+      "caption": "Alerta local durante a falha simulada de comunicação. O OLED indica ALERTA com PM2.5 de 57 µg/m³ e a serial registra o buzzer ligado a 4 kHz e a falha de conexão TCP."
+    },
+    "Figura-3-Telemetria-e-Comando.jpg": {
+      "origin": "dados/testes-integrados/06-autoteste-sem-alerta-painel.jpg",
+      "record": "dados/testes-integrados/06-autoteste-sem-alerta.json",
+      "sha256": "3dd278626257ebc5f29022359528c6b05603b289ac2f693a6ef624c70a99c123",
+      "caption": "Telemetria e comando no painel Node-RED. O ESP32 está online com PM2.5 de 25 µg/m³. O registro mostra envio, início e conclusão do comando 1793843075 na sessão 1. A saída voltou ao estado desligado ao terminar o autoteste."
+    },
+    "Figura-4-Pulso-GPIO21.png": {
+      "origin": "dados/medicoes/04/captura.vcd",
+      "vcd_sha256": "d1048a31b7432527d26f656800698a972ec7ebe3e8909bdd455196e3da7cfb9c",
+      "command_id": 4301,
+      "client_id": "a4-47db91f2-ac6f535a",
+      "session": 1,
+      "marker_to_first_rise_ns": 1643517
+    }
+  },
+  "version_sha256": {
+    "firmware/medicao/sketch.ino": "38eb8836d2bbc1ae3fe4a3c78e106b408bc7e4c66b4f93ad679b935b2e5ef81a",
+    "firmware/demonstracao/sketch.ino": "ab4eb52458db15d02a124e8d87210b0e0f954e0bf015444aa19e7a8b1f757225",
+    "firmware/teste-rede/sketch.ino": "26b5e153d686fe1bae51a6807d44f8a8629de9af3a3c3d6da084e9c59e3b0052",
+    "node-red/flows.json": "11a735eadf2755afd0507f009cae09ce0c1fd30fa4a052de0934d57fc5837dcb"
+  }
+}
