@@ -1,0 +1,368 @@
+{
+  "client_id": "a4-47db91f2-ac6f535a",
+  "session": 1,
+  "vcd_frames": 55,
+  "uart_errors": 0,
+  "sensor": {
+    "frame": {
+      "index": 47,
+      "start_ns": 46010000000,
+      "end_ns": 46043333437,
+      "pm": [
+        10,
+        45,
+        45
+      ],
+      "marker_ns": 46010000000
+    },
+    "first_changed_sample_seq": 43,
+    "first_changed_vcd_index": 44,
+    "mqtt_seq": 6,
+    "sample_seq": 46,
+    "host_receive_ns": 35216482012000,
+    "esp_publish_uptime_ms": 46466
+  },
+  "actuator": {
+    "id": 4301,
+    "duration_ms": 500,
+    "host_publish_ns": 35216482170200,
+    "vcd_marker_ns": 47330633867,
+    "esp_mark_before_us": 47330621,
+    "esp_mark_after_us": 47330636,
+    "vcd_first_rise_ns": 47332277384,
+    "marker_to_gpio_ns": 1643517,
+    "frequency_hz": 4000.0,
+    "host_ack_ns": 35217294950100,
+    "finished_esp_uptime_ms": 47846
+  },
+  "anchors": [
+    {
+      "id": 4302,
+      "vcd_ns": 38011733450,
+      "host_send_ns": 35207210175500,
+      "host_receive_ns": 35207875518100,
+      "esp_before_us": 38011733,
+      "esp_after_us": 38011733
+    },
+    {
+      "id": 4303,
+      "vcd_ns": 38281573829,
+      "host_send_ns": 35207484907500,
+      "host_receive_ns": 35208138288100,
+      "esp_before_us": 38281562,
+      "esp_after_us": 38281575
+    },
+    {
+      "id": 4304,
+      "vcd_ns": 38571875025,
+      "host_send_ns": 35207764855000,
+      "host_receive_ns": 35208422848200,
+      "esp_before_us": 38571862,
+      "esp_after_us": 38571877
+    },
+    {
+      "id": 4305,
+      "vcd_ns": 38841924545,
+      "host_send_ns": 35208029523700,
+      "host_receive_ns": 35208707673800,
+      "esp_before_us": 38841911,
+      "esp_after_us": 38841927
+    },
+    {
+      "id": 4306,
+      "vcd_ns": 39091554650,
+      "host_send_ns": 35208293587200,
+      "host_receive_ns": 35208970056900,
+      "esp_before_us": 39091553,
+      "esp_after_us": 39091554
+    },
+    {
+      "id": 4307,
+      "vcd_ns": 39381573829,
+      "host_send_ns": 35208573604200,
+      "host_receive_ns": 35209233315800,
+      "esp_before_us": 39381562,
+      "esp_after_us": 39381575
+    },
+    {
+      "id": 4308,
+      "vcd_ns": 39651768037,
+      "host_send_ns": 35208851691600,
+      "host_receive_ns": 35209496752000,
+      "esp_before_us": 39651766,
+      "esp_after_us": 39651768
+    },
+    {
+      "id": 4309,
+      "vcd_ns": 39922855287,
+      "host_send_ns": 35209115897800,
+      "host_receive_ns": 35209767103700,
+      "esp_before_us": 39922842,
+      "esp_after_us": 39922858
+    },
+    {
+      "id": 4310,
+      "vcd_ns": 40193573829,
+      "host_send_ns": 35209380143500,
+      "host_receive_ns": 35210058645700,
+      "esp_before_us": 40193562,
+      "esp_after_us": 40193575
+    },
+    {
+      "id": 4311,
+      "vcd_ns": 40442687137,
+      "host_send_ns": 35209642419600,
+      "host_receive_ns": 35210321166900,
+      "esp_before_us": 40442674,
+      "esp_after_us": 40442690
+    },
+    {
+      "id": 4312,
+      "vcd_ns": 40711573829,
+      "host_send_ns": 35209920173900,
+      "host_receive_ns": 35210591831700,
+      "esp_before_us": 40711562,
+      "esp_after_us": 40711575
+    },
+    {
+      "id": 4313,
+      "vcd_ns": 40981554650,
+      "host_send_ns": 35210182096500,
+      "host_receive_ns": 35210854622100,
+      "esp_before_us": 40981553,
+      "esp_after_us": 40981554
+    },
+    {
+      "id": 4314,
+      "vcd_ns": 41251509608,
+      "host_send_ns": 35210444363100,
+      "host_receive_ns": 35211125195200,
+      "esp_before_us": 41251496,
+      "esp_after_us": 41251512
+    },
+    {
+      "id": 4315,
+      "vcd_ns": 41527556037,
+      "host_send_ns": 35210707780700,
+      "host_receive_ns": 35211388446700,
+      "esp_before_us": 41527552,
+      "esp_after_us": 41527559
+    },
+    {
+      "id": 4316,
+      "vcd_ns": 41777573829,
+      "host_send_ns": 35210969398000,
+      "host_receive_ns": 35211658889900,
+      "esp_before_us": 41777562,
+      "esp_after_us": 41777575
+    },
+    {
+      "id": 4317,
+      "vcd_ns": 42045887495,
+      "host_send_ns": 35211247263000,
+      "host_receive_ns": 35211934692400,
+      "esp_before_us": 42045887,
+      "esp_after_us": 42045887
+    },
+    {
+      "id": 4318,
+      "vcd_ns": 42313573829,
+      "host_send_ns": 35211510342000,
+      "host_receive_ns": 35212212066600,
+      "esp_before_us": 42313562,
+      "esp_after_us": 42313575
+    },
+    {
+      "id": 4319,
+      "vcd_ns": 42563554650,
+      "host_send_ns": 35211773854600,
+      "host_receive_ns": 35212472384100,
+      "esp_before_us": 42563553,
+      "esp_after_us": 42563554
+    },
+    {
+      "id": 4320,
+      "vcd_ns": 42853572754,
+      "host_send_ns": 35212054064600,
+      "host_receive_ns": 35212743474100,
+      "esp_before_us": 42853560,
+      "esp_after_us": 42853573
+    },
+    {
+      "id": 4321,
+      "vcd_ns": 43143554650,
+      "host_send_ns": 35212331912100,
+      "host_receive_ns": 35213004530000,
+      "esp_before_us": 43143553,
+      "esp_after_us": 43143554
+    },
+    {
+      "id": 4322,
+      "vcd_ns": 43393573829,
+      "host_send_ns": 35212594386000,
+      "host_receive_ns": 35213281744000,
+      "esp_before_us": 43393562,
+      "esp_after_us": 43393575
+    },
+    {
+      "id": 4323,
+      "vcd_ns": 43663555158,
+      "host_send_ns": 35212857280200,
+      "host_receive_ns": 35213538034700,
+      "esp_before_us": 43663554,
+      "esp_after_us": 43663555
+    },
+    {
+      "id": 4324,
+      "vcd_ns": 43913573829,
+      "host_send_ns": 35213119570200,
+      "host_receive_ns": 35213808428100,
+      "esp_before_us": 43913562,
+      "esp_after_us": 43913575
+    },
+    {
+      "id": 4325,
+      "vcd_ns": 44204539300,
+      "host_send_ns": 35213398843800,
+      "host_receive_ns": 35214072599400,
+      "esp_before_us": 44204538,
+      "esp_after_us": 44204539
+    },
+    {
+      "id": 4326,
+      "vcd_ns": 44473573829,
+      "host_send_ns": 35213661748900,
+      "host_receive_ns": 35214342225100,
+      "esp_before_us": 44473562,
+      "esp_after_us": 44473575
+    },
+    {
+      "id": 4327,
+      "vcd_ns": 44743554650,
+      "host_send_ns": 35213924289000,
+      "host_receive_ns": 35214604370600,
+      "esp_before_us": 44743553,
+      "esp_after_us": 44743554
+    },
+    {
+      "id": 4328,
+      "vcd_ns": 44993573829,
+      "host_send_ns": 35214185595000,
+      "host_receive_ns": 35214881821300,
+      "esp_before_us": 44993562,
+      "esp_after_us": 44993575
+    },
+    {
+      "id": 4329,
+      "vcd_ns": 45263555158,
+      "host_send_ns": 35214464719800,
+      "host_receive_ns": 35215139584700,
+      "esp_before_us": 45263554,
+      "esp_after_us": 45263555
+    },
+    {
+      "id": 4330,
+      "vcd_ns": 45513573829,
+      "host_send_ns": 35214726580100,
+      "host_receive_ns": 35215408260600,
+      "esp_before_us": 45513562,
+      "esp_after_us": 45513575
+    },
+    {
+      "id": 4331,
+      "vcd_ns": 45804539300,
+      "host_send_ns": 35215003325600,
+      "host_receive_ns": 35215671578500,
+      "esp_before_us": 45804538,
+      "esp_after_us": 45804539
+    },
+    {
+      "id": 4332,
+      "vcd_ns": 46073573829,
+      "host_send_ns": 35215265393300,
+      "host_receive_ns": 35215941531800,
+      "esp_before_us": 46073562,
+      "esp_after_us": 46073575
+    },
+    {
+      "id": 4333,
+      "vcd_ns": 46343554650,
+      "host_send_ns": 35215528389200,
+      "host_receive_ns": 35216204631200,
+      "esp_before_us": 46343553,
+      "esp_after_us": 46343554
+    },
+    {
+      "id": 4334,
+      "vcd_ns": 46579573829,
+      "host_send_ns": 35215792855700,
+      "host_receive_ns": 35216482242600,
+      "esp_before_us": 46579562,
+      "esp_after_us": 46579575
+    },
+    {
+      "id": 4335,
+      "vcd_ns": 46849235804,
+      "host_send_ns": 35216055424100,
+      "host_receive_ns": 35216738456800,
+      "esp_before_us": 46849223,
+      "esp_after_us": 46849238
+    },
+    {
+      "id": 4336,
+      "vcd_ns": 47119573829,
+      "host_send_ns": 35216318535900,
+      "host_receive_ns": 35217008666500,
+      "esp_before_us": 47119562,
+      "esp_after_us": 47119575
+    },
+    {
+      "id": 4337,
+      "vcd_ns": 47499555391,
+      "host_send_ns": 35216596192200,
+      "host_receive_ns": 35217584668000,
+      "esp_before_us": 47499554,
+      "esp_after_us": 47499555
+    },
+    {
+      "id": 4338,
+      "vcd_ns": 47690554412,
+      "host_send_ns": 35216857859700,
+      "host_receive_ns": 35217862936600,
+      "esp_before_us": 47690553,
+      "esp_after_us": 47690554
+    },
+    {
+      "id": 4339,
+      "vcd_ns": 47860554900,
+      "host_send_ns": 35217137688300,
+      "host_receive_ns": 35217863106000,
+      "esp_before_us": 47860554,
+      "esp_after_us": 47860554
+    },
+    {
+      "id": 4340,
+      "vcd_ns": 48132572975,
+      "host_send_ns": 35217417136500,
+      "host_receive_ns": 35218128301300,
+      "esp_before_us": 48132561,
+      "esp_after_us": 48132573
+    },
+    {
+      "id": 4341,
+      "vcd_ns": 48403536233,
+      "host_send_ns": 35217680387800,
+      "host_receive_ns": 35218388600800,
+      "esp_before_us": 48403531,
+      "esp_after_us": 48403536
+    },
+    {
+      "id": 4342,
+      "vcd_ns": 48673573829,
+      "host_send_ns": 35217958995400,
+      "host_receive_ns": 35218658537300,
+      "esp_before_us": 48673562,
+      "esp_after_us": 48673575
+    }
+  ]
+}

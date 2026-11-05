@@ -1,0 +1,27 @@
+{
+  "attempt": "04",
+  "initial_pm25": 20,
+  "stimulus_pm25": 45,
+  "command_id": 4301,
+  "firmware": "a4-3b-piloto",
+  "unit": "ms",
+  "client_id": "a4-47db91f2-ac6f535a",
+  "session": 1,
+  "probes": 41,
+  "sensor": {
+    "accepted": true,
+    "interval_ms": [
+      540,
+      1480
+    ],
+    "raw_width_ms": 938.2066
+  },
+  "actuator": {
+    "accepted": true,
+    "interval_ms": [
+      0,
+      1110
+    ],
+    "raw_width_ms": 1102.498
+  }
+}
