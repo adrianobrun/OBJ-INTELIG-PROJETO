@@ -1,0 +1,9 @@
+node_modules/
+.pnpm-store/
+.config.*
+*_cred.json
+node-red/a4-comandos.jsonl
+__pycache__/
+.venv/
+.mpl-cache/
+dados/novos-ensaios/
