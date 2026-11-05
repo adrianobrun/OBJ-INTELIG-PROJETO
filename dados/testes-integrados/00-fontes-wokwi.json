@@ -1,0 +1,211 @@
+{
+  "case": "00-fontes-wokwi",
+  "at": "2026-11-05T01:46:36.855Z",
+  "diagram": {
+    "version": 1,
+    "author": "PMS5003 simulation project",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-esp32-s3-devkitc-1",
+        "id": "esp",
+        "top": -0.18,
+        "left": 42.97,
+        "attrs": {}
+      },
+      {
+        "type": "chip-pms5003",
+        "id": "pms",
+        "top": 10.62,
+        "left": -91.2,
+        "attrs": {
+          "pm1": "10",
+          "pm25": "20",
+          "pm10": "30",
+          "warmupMs": "0",
+          "intervalMs": "1000",
+          "fault": "0"
+        }
+      },
+      {
+        "type": "board-ssd1306",
+        "id": "oled",
+        "top": 291.14,
+        "left": -47.77,
+        "attrs": {
+          "i2cAddress": "0x3c"
+        }
+      },
+      {
+        "type": "wokwi-buzzer",
+        "id": "buzzer",
+        "top": 98.4,
+        "left": 203.4,
+        "attrs": {
+          "volume": "0.1"
+        }
+      }
+    ],
+    "connections": [
+      [
+        "esp:TX",
+        "$serialMonitor:RX",
+        "",
+        []
+      ],
+      [
+        "esp:RX",
+        "$serialMonitor:TX",
+        "",
+        []
+      ],
+      [
+        "pms:VCC",
+        "esp:5V",
+        "red",
+        [
+          "h-20",
+          "v390"
+        ]
+      ],
+      [
+        "pms:GND",
+        "esp:GND.1",
+        "black",
+        [
+          "h-30",
+          "v380"
+        ]
+      ],
+      [
+        "pms:TX",
+        "esp:17",
+        "green",
+        [
+          "v67.2",
+          "h21.06"
+        ]
+      ],
+      [
+        "oled:VCC",
+        "esp:3V3.2",
+        "red",
+        [
+          "v-28.8",
+          "h28.95",
+          "v-230.4"
+        ]
+      ],
+      [
+        "oled:GND",
+        "esp:GND.2",
+        "black",
+        [
+          "v-19.2",
+          "h153.6",
+          "v-249.6"
+        ]
+      ],
+      [
+        "oled:SDA",
+        "esp:8",
+        "blue",
+        [
+          "v-163.2",
+          "h25.95"
+        ]
+      ],
+      [
+        "oled:SCL",
+        "esp:9",
+        "orange",
+        [
+          "v-134.4",
+          "h35.78"
+        ]
+      ],
+      [
+        "buzzer:2",
+        "esp:21",
+        "purple",
+        [
+          "h-0.4",
+          "v9.6"
+        ]
+      ],
+      [
+        "buzzer:1",
+        "esp:GND.3",
+        "black",
+        [
+          "v38.4"
+        ]
+      ]
+    ],
+    "serialMonitor": {
+      "convertEol": true,
+      "display": "always"
+    },
+    "dependencies": {}
+  },
+  "chip_c": "// PMS5003 UART simulation for Wokwi. See README.md for model assumptions.\n#include \"wokwi-api.h\"\n#include <stdlib.h>\n#include <string.h>\n\n#define FRAME_SIZE 32\n#define COMMAND_SIZE 7\n#define AUTO_VALUE UINT32_MAX\n#define TICK_US 10000\n\ntypedef struct {\n  pin_t set_pin, reset_pin;\n  uart_dev_t uart;\n  uint32_t pm[3], cf1[3], particles[6];\n  uint32_t interval_attr, warmup_attr, fault_attr;\n  uint8_t command[COMMAND_SIZE], command_size;\n  uint8_t frame[FRAME_SIZE];\n  bool active, sleep_command, running, tx_busy, read_pending;\n  uint64_t ready_at, next_frame_at, last_rx_at;\n} chip_state_t;\n\nstatic uint64_t now_ms(void) { return get_sim_nanos() / 1000000; }\nstatic uint32_t min_u32(uint32_t a, uint32_t b) { return a < b ? a : b; }\nstatic uint16_t u16(uint32_t value) { return (uint16_t)min_u32(value, 65535); }\n\nstatic void put_u16(uint8_t *dest, uint16_t value) {\n  dest[0] = value >> 8;\n  dest[1] = value & 255;\n}\n\nstatic uint16_t checksum(const uint8_t *data, uint8_t size) {\n  uint16_t sum = 0;\n  for (uint8_t i = 0; i < size; i++) sum += data[i];\n  return sum;\n}\n\nstatic uint16_t optional_value(uint32_t attr, uint16_t fallback) {\n  uint32_t value = attr_read(attr);\n  return value == AUTO_VALUE ? fallback : u16(value);\n}\n\nstatic void build_frame(chip_state_t *chip) {\n  uint16_t pm25 = u16(attr_read(chip->pm[1]));\n  uint16_t pm1 = u16(min_u32(attr_read(chip->pm[0]), pm25));\n  uint16_t pm10 = u16(attr_read(chip->pm[2]));\n  if (pm10 < pm25) pm10 = pm25;\n  uint16_t mass[3] = {pm1, pm25, pm10};\n\n  // Deterministic fixtures, not a physical mass-to-particle conversion.\n  uint32_t counts[6];\n  counts[5] = 0;\n  counts[4] = (pm10 - pm25) / 40;\n  counts[3] = counts[4] + (pm10 - pm25) / 5;\n  counts[2] = counts[3] + (pm25 - pm1) * 2;\n  counts[1] = counts[2] + pm1 * 20;\n  counts[0] = counts[1] + pm1 * 80;\n\n  memset(chip->frame, 0, FRAME_SIZE);\n  chip->frame[0] = 0x42;\n  chip->frame[1] = 0x4d;\n  put_u16(chip->frame + 2, 28);\n  for (uint8_t i = 0; i < 3; i++) {\n    put_u16(chip->frame + 4 + 2 * i,\n            optional_value(chip->cf1[i], mass[i]));\n    put_u16(chip->frame + 10 + 2 * i, mass[i]);\n  }\n  for (uint8_t i = 0; i < 6; i++) {\n    put_u16(chip->frame + 16 + 2 * i,\n            optional_value(chip->particles[i], u16(counts[i])));\n  }\n  // Bytes 28 and 29 are reserved in the V2.3 manual; keep both zero.\n  uint16_t sum = checksum(chip->frame, 30);\n  if (attr_read(chip->fault_attr) == 1) sum ^= 1;\n  put_u16(chip->frame + 30, sum);\n}\n\nstatic void update_running(chip_state_t *chip) {\n  bool running = pin_read(chip->reset_pin) == HIGH &&\n                 pin_read(chip->set_pin) == HIGH && !chip->sleep_command;\n  if (running && !chip->running) {\n    // Suppressing unstable readings is a deliberate simplification.\n    chip->ready_at = now_ms() + min_u32(attr_read(chip->warmup_attr), 60000);\n    chip->next_frame_at = chip->ready_at;\n  }\n  if (!running) chip->read_pending = false;\n  chip->running = running;\n}\n\nstatic void on_pin_change(void *user_data, pin_t pin, uint32_t value) {\n  chip_state_t *chip = user_data;\n  if (pin == chip->reset_pin && value == LOW) {\n    chip->active = true;\n    chip->sleep_command = false;\n    chip->command_size = 0;\n    chip->read_pending = false;\n  }\n  update_running(chip);\n}\n\nstatic void on_write_done(void *user_data) {\n  ((chip_state_t *)user_data)->tx_busy = false;\n}\n\nstatic void execute_command(chip_state_t *chip) {\n  uint8_t cmd = chip->command[2];\n  uint8_t value = chip->command[4];\n  // DATAH is unspecified (X) in the manual. E2 ignores both data bytes.\n  if (cmd == 0xe1 && value <= 1) {\n    chip->active = value == 1;\n    chip->read_pending = false;\n    if (chip->active) chip->next_frame_at = now_ms();\n  } else if (cmd == 0xe2) {\n    if (!chip->active && chip->running && now_ms() >= chip->ready_at)\n      chip->read_pending = true;\n  } else if (cmd == 0xe4 && value <= 1) {\n    chip->sleep_command = value == 0;\n    update_running(chip);\n  }\n  // V2.3 defines a data reply for E2 only. No invented E1/E4 ACKs.\n}\n\nstatic void drop_command_byte(chip_state_t *chip) {\n  chip->command_size--;\n  memmove(chip->command, chip->command + 1, chip->command_size);\n}\n\nstatic void on_rx_data(void *user_data, uint8_t byte) {\n  chip_state_t *chip = user_data;\n  if (pin_read(chip->reset_pin) == LOW) return;\n  uint64_t time = now_ms();\n  if (time - chip->last_rx_at > 100) chip->command_size = 0;\n  chip->last_rx_at = time;\n  chip->command[chip->command_size++] = byte;\n\n  // Sliding resynchronization also recovers headers inside damaged packets.\n  while (chip->command_size) {\n    if (chip->command[0] != 0x42 ||\n        (chip->command_size >= 2 && chip->command[1] != 0x4d)) {\n      drop_command_byte(chip);\n      continue;\n    }\n    if (chip->command_size < COMMAND_SIZE) break;\n    uint16_t received = ((uint16_t)chip->command[5] << 8) | chip->command[6];\n    if (checksum(chip->command, 5) == received) {\n      execute_command(chip);\n      chip->command_size = 0;\n    } else {\n      drop_command_byte(chip);\n    }\n  }\n}\n\nstatic void on_tick(void *user_data) {\n  chip_state_t *chip = user_data;\n  update_running(chip);\n  uint64_t time = now_ms();\n  if (!chip->running || time < chip->ready_at || chip->tx_busy) return;\n  if (chip->active ? time < chip->next_frame_at : !chip->read_pending) return;\n\n  uint32_t period = min_u32(attr_read(chip->interval_attr), 60000);\n  if (period < 200) period = 200;\n  chip->next_frame_at = time + period;\n  chip->read_pending = false;\n  if (attr_read(chip->fault_attr) == 2) return;\n\n  build_frame(chip);\n  // Keep this buffer intact until Wokwi finishes the asynchronous write.\n  chip->tx_busy = uart_write(chip->uart, chip->frame, FRAME_SIZE);\n}\n\nvoid chip_init(void) {\n  chip_state_t *chip = calloc(1, sizeof(*chip));\n  if (!chip) return;\n  pin_init(\"VCC\", INPUT);\n  pin_init(\"GND\", INPUT);\n  chip->set_pin = pin_init(\"SET\", INPUT_PULLUP);\n  chip->reset_pin = pin_init(\"RESET\", INPUT_PULLUP);\n  chip->active = true;\n  chip->pm[0] = attr_init(\"pm1\", 8);\n  chip->pm[1] = attr_init(\"pm25\", 12);\n  chip->pm[2] = attr_init(\"pm10\", 18);\n  chip->cf1[0] = attr_init(\"cf1Pm1\", AUTO_VALUE);\n  chip->cf1[1] = attr_init(\"cf1Pm25\", AUTO_VALUE);\n  chip->cf1[2] = attr_init(\"cf1Pm10\", AUTO_VALUE);\n  const char *count_names[] = {\n    \"particles03\", \"particles05\", \"particles10\",\n    \"particles25\", \"particles50\", \"particles100\"\n  };\n  for (uint8_t i = 0; i < 6; i++)\n    chip->particles[i] = attr_init(count_names[i], AUTO_VALUE);\n  chip->interval_attr = attr_init(\"intervalMs\", 2300);\n  chip->warmup_attr = attr_init(\"warmupMs\", 30000);\n  chip->fault_attr = attr_init(\"fault\", 0);\n\n  const uart_config_t uart_config = {\n    .rx = pin_init(\"RX\", INPUT),\n    .tx = pin_init(\"TX\", INPUT_PULLUP),\n    .baud_rate = 9600,\n    .rx_data = on_rx_data,\n    .write_done = on_write_done,\n    .user_data = chip,\n  };\n  chip->uart = uart_init(&uart_config);\n  const pin_watch_config_t watch_config = {\n    .edge = BOTH, .pin_change = on_pin_change, .user_data = chip,\n  };\n  pin_watch(chip->set_pin, &watch_config);\n  pin_watch(chip->reset_pin, &watch_config);\n  const timer_config_t timer_config = {\n    .callback = on_tick, .user_data = chip,\n  };\n  timer_t timer = timer_init(&timer_config);\n  update_running(chip);\n  timer_start(timer, TICK_US, true);\n}\n",
+  "chip_json": {
+    "name": "PMS5003 (simulado)",
+    "author": "PMS5003 simulation project",
+    "pins": [
+      "VCC",
+      "GND",
+      "SET",
+      "RX",
+      "TX",
+      "RESET",
+      "NC7",
+      "NC8"
+    ],
+    "controls": [
+      {
+        "id": "pm1",
+        "label": "PM1.0 (ug/m3)",
+        "type": "range",
+        "min": 0,
+        "max": 1000,
+        "step": 1
+      },
+      {
+        "id": "pm25",
+        "label": "PM2.5 (ug/m3)",
+        "type": "range",
+        "min": 0,
+        "max": 1000,
+        "step": 1
+      },
+      {
+        "id": "pm10",
+        "label": "PM10 (ug/m3)",
+        "type": "range",
+        "min": 0,
+        "max": 1000,
+        "step": 1
+      },
+      {
+        "id": "intervalMs",
+        "label": "Intervalo (ms)",
+        "type": "range",
+        "min": 200,
+        "max": 2300,
+        "step": 100
+      },
+      {
+        "id": "fault",
+        "label": "Falha: 0=normal, 1=checksum, 2=sem dados",
+        "type": "range",
+        "min": 0,
+        "max": 2,
+        "step": 1
+      }
+    ]
+  },
+  "libraries": "# Versoes selecionadas para reproduzir os testes no Wokwi\nAdafruit SSD1306@2.5.17\nAdafruit GFX Library@1.13.0\nPubSubClient@2.8\n",
+  "base_exact": true,
+  "fault_define_only": true
+}
