@@ -1,0 +1,12 @@
+{
+  "name": "PMS5003 (simulado)",
+  "author": "PMS5003 simulation project",
+  "pins": ["VCC", "GND", "SET", "RX", "TX", "RESET", "NC7", "NC8"],
+  "controls": [
+    { "id": "pm1", "label": "PM1.0 (ug/m3)", "type": "range", "min": 0, "max": 1000, "step": 1 },
+    { "id": "pm25", "label": "PM2.5 (ug/m3)", "type": "range", "min": 0, "max": 1000, "step": 1 },
+    { "id": "pm10", "label": "PM10 (ug/m3)", "type": "range", "min": 0, "max": 1000, "step": 1 },
+    { "id": "intervalMs", "label": "Intervalo (ms)", "type": "range", "min": 200, "max": 2300, "step": 100 },
+    { "id": "fault", "label": "Falha: 0=normal, 1=checksum, 2=sem dados", "type": "range", "min": 0, "max": 2, "step": 1 }
+  ]
+}
