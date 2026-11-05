@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "PMS5003 simulation project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": -0.18, "left": 42.97, "attrs": {} },
+    {
+      "type": "chip-pms5003",
+      "id": "pms",
+      "top": 10.62,
+      "left": -91.2,
+      "attrs": {
+        "pm1": "10",
+        "pm25": "20",
+        "pm10": "30",
+        "warmupMs": "0",
+        "intervalMs": "1000",
+        "fault": "0"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": 291.14,
+      "left": -47.77,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 98.4,
+      "left": 203.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pms:VCC", "esp:5V", "red", [ "h-20", "v390" ] ],
+    [ "pms:GND", "esp:GND.1", "black", [ "h-30", "v380" ] ],
+    [ "pms:TX", "esp:17", "green", [ "v67.2", "h21.06" ] ],
+    [ "oled:VCC", "esp:3V3.2", "red", [ "v-28.8", "h28.95", "v-230.4" ] ],
+    [ "oled:GND", "esp:GND.2", "black", [ "v-19.2", "h153.6", "v-249.6" ] ],
+    [ "oled:SDA", "esp:8", "blue", [ "v-163.2", "h25.95" ] ],
+    [ "oled:SCL", "esp:9", "orange", [ "v-134.4", "h35.78" ] ],
+    [ "buzzer:2", "esp:21", "purple", [ "h-0.4", "v9.6" ] ],
+    [ "buzzer:1", "esp:GND.3", "black", [ "v38.4" ] ]
+  ],
+  "serialMonitor": { "convertEol": true, "display": "always" },
+  "dependencies": {}
+}
