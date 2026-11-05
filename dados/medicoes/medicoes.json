@@ -1,0 +1,447 @@
+{
+  "version": "a4-3d",
+  "attempts": [
+    {
+      "attempt": "01",
+      "initial_pm25": 20,
+      "stimulus_pm25": 28,
+      "command_id": 4001,
+      "firmware": "a4-3b-piloto",
+      "unit": "ms",
+      "client_id": "a4-47db91f2-f566bbd8",
+      "session": 1,
+      "probes": 60,
+      "sensor": {
+        "accepted": true,
+        "interval_ms": [
+          790,
+          1860
+        ],
+        "raw_width_ms": 1058.9349
+      },
+      "actuator": {
+        "accepted": true,
+        "interval_ms": [
+          0,
+          1150
+        ],
+        "raw_width_ms": 1143.3878
+      }
+    },
+    {
+      "attempt": "02",
+      "initial_pm25": 20,
+      "stimulus_pm25": 33,
+      "command_id": 4101,
+      "firmware": "a4-3b-piloto",
+      "unit": "ms",
+      "client_id": "a4-47db91f2-96c067f7",
+      "session": 1,
+      "probes": 42,
+      "sensor": {
+        "accepted": true,
+        "interval_ms": [
+          230,
+          1100
+        ],
+        "raw_width_ms": 852.6108
+      },
+      "actuator": {
+        "accepted": true,
+        "interval_ms": [
+          0,
+          800
+        ],
+        "raw_width_ms": 797.3604
+      }
+    },
+    {
+      "attempt": "03",
+      "initial_pm25": 20,
+      "stimulus_pm25": 38,
+      "command_id": 4201,
+      "firmware": "a4-3b-piloto",
+      "unit": "ms",
+      "client_id": "a4-47db91f2-f862a4a3",
+      "session": 1,
+      "probes": 41,
+      "sensor": {
+        "accepted": true,
+        "interval_ms": [
+          470,
+          1320
+        ],
+        "raw_width_ms": 843.7973
+      },
+      "actuator": {
+        "accepted": true,
+        "interval_ms": [
+          0,
+          910
+        ],
+        "raw_width_ms": 907.3655
+      }
+    },
+    {
+      "attempt": "04",
+      "initial_pm25": 20,
+      "stimulus_pm25": 45,
+      "command_id": 4301,
+      "firmware": "a4-3b-piloto",
+      "unit": "ms",
+      "client_id": "a4-47db91f2-ac6f535a",
+      "session": 1,
+      "probes": 41,
+      "sensor": {
+        "accepted": true,
+        "interval_ms": [
+          540,
+          1480
+        ],
+        "raw_width_ms": 938.2066
+      },
+      "actuator": {
+        "accepted": true,
+        "interval_ms": [
+          0,
+          1110
+        ],
+        "raw_width_ms": 1102.498
+      }
+    }
+  ],
+  "measurements": {
+    "sensor": [
+      {
+        "measurement": 1,
+        "attempt": "01",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-f566bbd8",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 28,
+        "identifiers": {
+          "sample_seq": 81,
+          "mqtt_seq": 16,
+          "vcd_frame": 82
+        },
+        "start": {
+          "event": "geracao_do_quadro_NC7",
+          "clock": "VCD",
+          "ns": 81010000000
+        },
+        "end": {
+          "event": "entrada_callback_MQTT",
+          "clock": "QPC",
+          "ns": 34708879313400
+        },
+        "probe_before": 4049,
+        "probe_after": 4050,
+        "raw_latency_ns": [
+          794083500,
+          1853018400
+        ],
+        "report_latency_ms": [
+          790,
+          1860
+        ],
+        "midpoint_report_ms": 1320,
+        "evidence": [
+          "01/captura.vcd",
+          "01/mqtt.jsonl",
+          "01/serial.txt",
+          "01/analise.json",
+          "01/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 2,
+        "attempt": "02",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-96c067f7",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 33,
+        "identifiers": {
+          "sample_seq": 48,
+          "mqtt_seq": 8,
+          "vcd_frame": 49
+        },
+        "start": {
+          "event": "geracao_do_quadro_NC7",
+          "clock": "VCD",
+          "ns": 48010000000
+        },
+        "end": {
+          "event": "entrada_callback_MQTT",
+          "clock": "QPC",
+          "ns": 34849193040500
+        },
+        "probe_before": 4134,
+        "probe_after": 4135,
+        "raw_latency_ns": [
+          239491000,
+          1092101800
+        ],
+        "report_latency_ms": [
+          230,
+          1100
+        ],
+        "midpoint_report_ms": 670,
+        "evidence": [
+          "02/captura.vcd",
+          "02/mqtt.jsonl",
+          "02/serial.txt",
+          "02/analise.json",
+          "02/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 3,
+        "attempt": "03",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-f862a4a3",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 38,
+        "identifiers": {
+          "sample_seq": 63,
+          "mqtt_seq": 13,
+          "vcd_frame": 64
+        },
+        "start": {
+          "event": "geracao_do_quadro_NC7",
+          "clock": "VCD",
+          "ns": 63010000000
+        },
+        "end": {
+          "event": "entrada_callback_MQTT",
+          "clock": "QPC",
+          "ns": 35059019701100
+        },
+        "probe_before": 4232,
+        "probe_after": 4233,
+        "raw_latency_ns": [
+          473387600,
+          1317184900
+        ],
+        "report_latency_ms": [
+          470,
+          1320
+        ],
+        "midpoint_report_ms": 900,
+        "evidence": [
+          "03/captura.vcd",
+          "03/mqtt.jsonl",
+          "03/serial.txt",
+          "03/analise.json",
+          "03/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 4,
+        "attempt": "04",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-ac6f535a",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 45,
+        "identifiers": {
+          "sample_seq": 46,
+          "mqtt_seq": 6,
+          "vcd_frame": 47
+        },
+        "start": {
+          "event": "geracao_do_quadro_NC7",
+          "clock": "VCD",
+          "ns": 46010000000
+        },
+        "end": {
+          "event": "entrada_callback_MQTT",
+          "clock": "QPC",
+          "ns": 35216482012000
+        },
+        "probe_before": 4331,
+        "probe_after": 4332,
+        "raw_latency_ns": [
+          540480000,
+          1478686600
+        ],
+        "report_latency_ms": [
+          540,
+          1480
+        ],
+        "midpoint_report_ms": 1010,
+        "evidence": [
+          "04/captura.vcd",
+          "04/mqtt.jsonl",
+          "04/serial.txt",
+          "04/analise.json",
+          "04/intervalos.json"
+        ]
+      }
+    ],
+    "actuator": [
+      {
+        "measurement": 1,
+        "attempt": "01",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-f566bbd8",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 28,
+        "identifiers": {
+          "command_id": 4001
+        },
+        "start": {
+          "event": "inicio_publicacao_MQTT",
+          "clock": "QPC",
+          "ns": 34708879440700
+        },
+        "end": {
+          "event": "primeira_subida_GPIO21",
+          "clock": "VCD",
+          "ns": 82649277664
+        },
+        "probe_before": 4055,
+        "probe_after": 4056,
+        "raw_latency_ns": [
+          0,
+          1143387800
+        ],
+        "report_latency_ms": [
+          0,
+          1150
+        ],
+        "midpoint_report_ms": 570,
+        "evidence": [
+          "01/captura.vcd",
+          "01/mqtt.jsonl",
+          "01/serial.txt",
+          "01/analise.json",
+          "01/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 2,
+        "attempt": "02",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-96c067f7",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 33,
+        "identifiers": {
+          "command_id": 4101
+        },
+        "start": {
+          "event": "inicio_publicacao_MQTT",
+          "clock": "QPC",
+          "ns": 34849193147000
+        },
+        "end": {
+          "event": "primeira_subida_GPIO21",
+          "clock": "VCD",
+          "ns": 49080277213
+        },
+        "probe_before": 4137,
+        "probe_after": 4138,
+        "raw_latency_ns": [
+          0,
+          797360400
+        ],
+        "report_latency_ms": [
+          0,
+          800
+        ],
+        "midpoint_report_ms": 400,
+        "evidence": [
+          "02/captura.vcd",
+          "02/mqtt.jsonl",
+          "02/serial.txt",
+          "02/analise.json",
+          "02/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 3,
+        "attempt": "03",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-f862a4a3",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 38,
+        "identifiers": {
+          "command_id": 4201
+        },
+        "start": {
+          "event": "inicio_publicacao_MQTT",
+          "clock": "QPC",
+          "ns": 35059019821400
+        },
+        "end": {
+          "event": "primeira_subida_GPIO21",
+          "clock": "VCD",
+          "ns": 64180277655
+        },
+        "probe_before": 4236,
+        "probe_after": 4237,
+        "raw_latency_ns": [
+          0,
+          907365500
+        ],
+        "report_latency_ms": [
+          0,
+          910
+        ],
+        "midpoint_report_ms": 450,
+        "evidence": [
+          "03/captura.vcd",
+          "03/mqtt.jsonl",
+          "03/serial.txt",
+          "03/analise.json",
+          "03/intervalos.json"
+        ]
+      },
+      {
+        "measurement": 4,
+        "attempt": "04",
+        "firmware": "a4-3b-piloto",
+        "client_id": "a4-47db91f2-ac6f535a",
+        "session": 1,
+        "initial_pm25_ug_m3": 20,
+        "stimulus_pm25_ug_m3": 45,
+        "identifiers": {
+          "command_id": 4301
+        },
+        "start": {
+          "event": "inicio_publicacao_MQTT",
+          "clock": "QPC",
+          "ns": 35216482170200
+        },
+        "end": {
+          "event": "primeira_subida_GPIO21",
+          "clock": "VCD",
+          "ns": 47332277384
+        },
+        "probe_before": 4336,
+        "probe_after": 4337,
+        "raw_latency_ns": [
+          0,
+          1102498000
+        ],
+        "report_latency_ms": [
+          0,
+          1110
+        ],
+        "midpoint_report_ms": 550,
+        "evidence": [
+          "04/captura.vcd",
+          "04/mqtt.jsonl",
+          "04/serial.txt",
+          "04/analise.json",
+          "04/intervalos.json"
+        ]
+      }
+    ]
+  }
+}
