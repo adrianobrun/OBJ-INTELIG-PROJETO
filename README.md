@@ -5,15 +5,26 @@ Protótipo simulado que lê PM1.0, PM2.5 e PM10 de um PMS5003, exibe os valores 
 ![Montagem em execução no Wokwi](docs/figuras/Figura-1-Montagem-Wokwi.jpg)
 
 ```mermaid
-flowchart LR
-    P["PMS5003 simulado"] -->|UART| E["ESP32-S3"]
-    E -->|I²C| O["OLED SSD1306"]
-    E -->|GPIO21| B["Buzzer"]
-    E -->|Wi-Fi · MQTT · Telemetria e eventos| M["Broker público EMQX"]
-    M -->|Telemetria e eventos| N["Painel Node-RED"]
-    N -->|Comando MQTT| M
-    M -->|Comando da sessão| E
+---
+config:
+  htmlLabels: false
+  flowchart:
+    nodeSpacing: 36
+    rankSpacing: 44
+    padding: 10
+---
+flowchart TB
+    subgraph D["Dispositivo ESP32-S3"]
+        P["PMS5003 simulado"] -->|UART| E["ESP32-S3"]
+        E -->|PWM · GPIO21| B["Buzzer"]
+        E -->|I²C| O["OLED SSD1306"]
+    end
+    E <-->|Wi-Fi · MQTT| M["Broker EMQX público"]
+    M <-->|MQTT| N["Painel Node-RED"]
 ```
+
+- **Telemetria e eventos** seguem do ESP32-S3 para o painel Node-RED pelo broker EMQX.
+- **Comandos de autoteste** seguem do painel para o ESP32-S3 pelo broker, no tópico da sessão ativa.
 
 ## Arquivos do projeto
 
