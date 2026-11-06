@@ -21,6 +21,10 @@ flowchart TB
     end
     E <-->|Wi-Fi · MQTT| M["Broker EMQX público"]
     M <-->|MQTT| N["Painel Node-RED"]
+
+    %% Reserva espaço abaixo do painel para os controles de zoom do GitHub.
+    N ~~~ margem["."]
+    style margem fill:none,stroke:none,color:transparent,font-size:150px
 ```
 
 - **Telemetria e eventos** seguem do ESP32-S3 para o painel Node-RED pelo broker EMQX.
