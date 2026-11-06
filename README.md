@@ -103,7 +103,11 @@ O ESP32 envia telemetria a cada 5 s, com QoS 0 e sem retenção. O painel usa a 
 
 Foram aceitas quatro medições da geração do pacote no sensor ao recebimento MQTT e quatro da publicação do comando ao primeiro pulso no GPIO21. As médias estimadas foram **970 ms** para o sensor, com intervalo de **510 a 1.440 ms**, e **490 ms** para o buzzer, com intervalo de **0 a 990 ms**. A [tabela e as figuras dos resultados](docs/Resultados.md) indicam os limites e as versões usadas.
 
-Para reproduzir a análise dos registros já coletados, execute a partir da raiz com Python 3.13.
+### Reprodução opcional dos resultados
+
+Os gráficos estão prontos na [página de resultados](docs/Resultados.md). Para a demonstração do protótipo, siga a seção [Executar a demonstração](#executar-a-demonstração).
+
+Se quiser conferir de onde saíram os valores do gráfico de tempos de resposta, você pode recalcular as oito medições a partir dos registros coletados e gerar o gráfico novamente. Para recalcular os valores, execute os comandos abaixo na pasta raiz com Python 3.13.
 
 ```powershell
 python scripts/verificar_medicao.py dados/medicoes/01 --pm25 28 --id 4001
@@ -113,6 +117,6 @@ python scripts/verificar_medicao.py dados/medicoes/04 --pm25 45 --id 4301
 python scripts/consolidar_medicoes.py
 ```
 
-Para repetir o ensaio com o analisador lógico ou gerar as figuras novamente, veja [`docs/Reproduzir-medicoes.md`](docs/Reproduzir-medicoes.md). Os registros de origem estão em [`dados/medicoes/`](dados/medicoes/) e as ocorrências de rede em [`docs/Diagnostico-Brokers.md`](docs/Diagnostico-Brokers.md).
+O [guia de reprodução das medições](docs/Reproduzir-medicoes.md) explica como gerar as figuras com esses resultados ou, se quiser coletar novos dados, repetir o ensaio com o analisador lógico. Os registros de origem estão em [`dados/medicoes/`](dados/medicoes/) e as ocorrências de rede em [`docs/Diagnostico-Brokers.md`](docs/Diagnostico-Brokers.md).
 
 Os arquivos VCD preservam as capturas do analisador lógico byte por byte. Nos registros textuais dos ensaios, os rótulos de versão, tópicos e prefixos de cliente foram padronizados com os nomes usados nesta distribuição. Os valores, as marcas de tempo, os IDs numéricos dos comandos e a associação entre eventos foram preservados. As imagens de funcionamento são recortes das capturas dos ensaios. O manifesto `SHA256SUMS.txt` identifica os arquivos distribuídos.
