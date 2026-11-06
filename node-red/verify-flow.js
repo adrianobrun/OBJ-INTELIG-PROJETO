@@ -12,8 +12,8 @@ let now = 1793842100000;
 let state;
 class Clock extends Date { static now() { return now; } }
 const context = { get: () => state, set: (_key, v) => { state = v; } };
-const base = 'obj-intelig-projeto/a4/47db91f2';
-const client_id = 'a4-47db91f2-1234abcd';
+const base = 'obj-intelig-projeto/pm/47db91f2';
+const client_id = 'pm-47db91f2-1234abcd';
 const session = 1;
 const command_topic = base + '/command/' + client_id + '-' + session;
 const input = (name, payload, extra) => step({topic: base + '/' + name, payload, ...extra}, context, Clock);
@@ -23,7 +23,7 @@ const click = () => step({topic:'ui/test',payload:true}, context, Clock);
 input('status', {client_id, session, command_topic: 'other/topic', online:true});
 assert.equal(tick().canTest, false);
 input('status', {client_id, session, command_topic, online:true});
-const sample = { version:'a4-2a-autoteste', client_id, seq:1, uptime_ms:5000, unit:'ug/m3',
+const sample = { version:'pm-autoteste', client_id, seq:1, uptime_ms:5000, unit:'ug/m3',
     sample_seq:5, pm1:10, pm25:25, pm10:30, sample_valid:true, alert:false, test_active:false, buzzer_on:false };
 input('telemetry', sample, {retain:false});
 assert.equal(tick().reading.pm25, 25);

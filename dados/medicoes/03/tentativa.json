@@ -3,9 +3,9 @@
   "initial_pm25": 20,
   "stimulus_pm25": 38,
   "command_id": 4201,
-  "firmware": "a4-3b-piloto",
+  "firmware": "pm-medicao",
   "unit": "ms",
-  "client_id": "a4-47db91f2-f862a4a3",
+  "client_id": "pm-47db91f2-f862a4a3",
   "session": 1,
   "probes": 41,
   "sensor": {

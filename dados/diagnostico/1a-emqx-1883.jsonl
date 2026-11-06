@@ -1,4 +1,0 @@
-{"timestamp_utc": "2026-11-04T22:36:55.520+00:00", "event": "connect", "broker": "broker.emqx.io", "port": 1883, "transport": "tcp"}
-{"timestamp_utc": "2026-11-04T22:36:56.813+00:00", "event": "connack", "reason": "Success"}
-{"timestamp_utc": "2026-11-04T22:36:57.031+00:00", "event": "suback", "topic": "obj-intelig-projeto/a4/47db91f2/probe", "qos": ["Granted QoS 0"]}
-{"timestamp_utc": "2026-11-04T22:38:05.962+00:00", "event": "message", "topic": "obj-intelig-projeto/a4/47db91f2/probe", "qos": 0, "retain": false, "payload": "{\"version\":\"a4-1a-mqtt\",\"client_id\":\"a4-47db91f2-2f51d3be\",\"uptime_ms\":3271}"}

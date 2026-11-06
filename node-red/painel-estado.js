@@ -1,14 +1,14 @@
 // Corpo do nó Function do Node-RED.
-const base = 'obj-intelig-projeto/a4/47db91f2';
+const base = 'obj-intelig-projeto/pm/47db91f2';
 const staleMs = 15000;
 const now = Date.now();
-const s = context.get('a4') || { broker: false, device: null, reading: null,
+const s = context.get('monitor-pm') || { broker: false, device: null, reading: null,
     received: 0, pending: null, lastId: 0, events: [], series: [], rejected: 0 };
 const body = msg.payload;
 const uint = (v, max = 4294967295) => Number.isInteger(v) && v >= 0 && v <= max;
 const positive = v => uint(v) && v > 0;
 const bool = v => typeof v === 'boolean';
-const idOk = v => typeof v === 'string' && /^a4-47db91f2-[0-9a-f]{8}$/.test(v);
+const idOk = v => typeof v === 'string' && /^pm-47db91f2-[0-9a-f]{8}$/.test(v);
 const pm = ['pm1', 'pm25', 'pm10'];
 const logs = [];
 let outgoing = null;
@@ -36,7 +36,7 @@ function isFresh() {
     return !!(s.broker && s.device?.online && s.received && now - s.received < staleMs);
 }
 function validReading(p) {
-    if (p?.version !== 'a4-2a-autoteste' || !idOk(p.client_id)
+    if (p?.version !== 'pm-autoteste' || !idOk(p.client_id)
         || !positive(p.seq) || !uint(p.uptime_ms) || p.unit !== 'ug/m3'
         || ![p.sample_valid, p.alert, p.test_active, p.buzzer_on].every(bool)) return false;
     if (p.sample_valid) {
@@ -113,7 +113,7 @@ const deviceState = !s.broker ? 'Sem ligação com o broker'
     : fresh ? 'Online'
     : now - (s.received || s.device.at) >= staleMs ? 'Sem telemetria recente'
     : 'Aguardando telemetria';
-context.set('a4', s);
+context.set('monitor-pm', s);
 return [{ payload: {
     broker: s.broker, deviceState, clientId: s.device?.client_id, session: s.device?.session,
     reading, age: s.received ? Math.floor((now - s.received) / 1000) : null,

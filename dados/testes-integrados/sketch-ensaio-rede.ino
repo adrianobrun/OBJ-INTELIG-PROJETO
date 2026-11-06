@@ -1,4 +1,4 @@
-#define A4_TEST_NETWORK
+#define PM_TEST_NETWORK
 // PMS5003 -> UART1 -> ESP32-S3 -> OLED e buzzer.
 // Limite de 50 ug/m3 exclusivamente experimental; nao e um padrao de seguranca.
 #include <Arduino.h>
@@ -237,7 +237,7 @@ void publishTelemetry(PubSubClient &mqtt, const char *topic, const char *clientI
   const uint8_t flags = outputFlags.load();
   const int length = snprintf(
       payload, sizeof(payload),
-      "{\"version\":\"a4-2a-autoteste\",\"client_id\":\"%s\",\"seq\":%lu,\"uptime_ms\":%lu,"
+      "{\"version\":\"pm-autoteste\",\"client_id\":\"%s\",\"seq\":%lu,\"uptime_ms\":%lu,"
       "\"unit\":\"ug/m3\",%s,\"sample_valid\":%s,\"alert\":%s,\"test_active\":%s,\"buzzer_on\":%s}",
       clientId, (unsigned long)seq, (unsigned long)now, reading,
       valid ? "true" : "false", alert ? "true" : "false",
@@ -290,10 +290,10 @@ void publishBuzzerEvents(PubSubClient &mqtt, const char *topic, const char *clie
 void networkTask(void *) {
   constexpr char BROKER[] = "broker.emqx.io";
   constexpr uint16_t PORT = 1883;
-  constexpr char TELEMETRY_TOPIC[] = "obj-intelig-projeto/a4/47db91f2/telemetry";
-  constexpr char STATUS_TOPIC[] = "obj-intelig-projeto/a4/47db91f2/status";
-  constexpr char COMMAND_PREFIX[] = "obj-intelig-projeto/a4/47db91f2/command";
-  constexpr char EVENT_TOPIC[] = "obj-intelig-projeto/a4/47db91f2/command-event";
+  constexpr char TELEMETRY_TOPIC[] = "obj-intelig-projeto/pm/47db91f2/telemetry";
+  constexpr char STATUS_TOPIC[] = "obj-intelig-projeto/pm/47db91f2/status";
+  constexpr char COMMAND_PREFIX[] = "obj-intelig-projeto/pm/47db91f2/command";
+  constexpr char EVENT_TOPIC[] = "obj-intelig-projeto/pm/47db91f2/command-event";
   constexpr uint32_t TELEMETRY_INTERVAL_MS = 5000;
   constexpr uint32_t RETRY_INTERVAL_MS = 5000;
   constexpr int32_t TCP_TIMEOUT_MS = 1500;
@@ -309,7 +309,7 @@ void networkTask(void *) {
   mqtt.setKeepAlive(8);
 
   char clientId[24];
-  snprintf(clientId, sizeof(clientId), "a4-47db91f2-%08lx", (unsigned long)esp_random());
+  snprintf(clientId, sizeof(clientId), "pm-47db91f2-%08lx", (unsigned long)esp_random());
   char online[200];
   char offline[72];
   char commandTopic[96] = "";
@@ -345,13 +345,13 @@ void networkTask(void *) {
   uint32_t nextPublishMs = 0;
   uint32_t telemetrySeq = 0;
   uint32_t nextAttemptMs = 0;
-#ifdef A4_TEST_NETWORK
+#ifdef PM_TEST_NETWORK
   // Instrumentacao local do Wokwi. X corta o TCP; R restaura o destino.
   bool blockBroker = true;
   Serial0.println("TEST MQTT bloqueado no inicio; X=cortar, R=restaurar");
 #endif
   for (;;) {
-#ifdef A4_TEST_NETWORK
+#ifdef PM_TEST_NETWORK
     const int command = Serial0.read();
     if (command == 'X' || command == 'R') {
       blockBroker = command == 'X';
@@ -391,7 +391,7 @@ void networkTask(void *) {
       if (!WiFi.hostByName(BROKER, address)) {
         Serial0.printf("DNS FALHOU %s\n", BROKER);
       } else {
-#ifdef A4_TEST_NETWORK
+#ifdef PM_TEST_NETWORK
         // TEST-NET-1 representa um destino indisponivel sem alterar o broker.
         if (blockBroker) address = IPAddress(192, 0, 2, 1);
 #endif
@@ -459,7 +459,7 @@ void loop() {
   if (hasSample && !sampleIsCurrent() && !timeoutReported) {
     timeoutReported = true;
     if (latestSample) xQueueReset(latestSample);
-    Serial0.println("TIMEOUT: sem quadro valido ha 5 s");
+    Serial0.println("TIMEOUT: sem pacote valido ha 5 s");
   }
   if (uint32_t(millis() - lastDisplayMs) >= 200) {
     lastDisplayMs = millis();

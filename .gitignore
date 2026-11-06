@@ -2,7 +2,7 @@ node_modules/
 .pnpm-store/
 .config.*
 *_cred.json
-node-red/a4-comandos.jsonl
+node-red/comandos-buzzer.jsonl
 __pycache__/
 .venv/
 .mpl-cache/

@@ -2,12 +2,12 @@ from pathlib import Path
 import json
 
 here = Path(__file__).resolve().parent
-prefix = "obj-intelig-projeto/a4/47db91f2"
+prefix = "obj-intelig-projeto/pm/47db91f2"
 tab = "a400000000000001"
 ids = {name: f"a4000000000000{i:02x}" for i, name in enumerate(
     ("broker", "base", "theme", "page", "group", "status", "telemetry", "event", "conn",
      "tick", "logic", "widget", "button", "publish", "file", "comment"), start=2)}
-nodes = [{"id": tab, "type": "tab", "label": "A4 · Qualidade do ar", "disabled": False,
+nodes = [{"id": tab, "type": "tab", "label": "Monitor de material particulado", "disabled": False,
           "info": "ESP32-S3 no Wokwi. MQTT público EMQX. Painel FlowFuse em /painel/ar."}]
 
 def config(key, kind, **opts):
@@ -19,14 +19,14 @@ def node(key, kind, x, y, wires, **opts):
 
 config("broker", "mqtt-broker", name="EMQX público · demonstração", broker="broker.emqx.io", port="1883",
        clientid="", autoConnect=True, usetls=False, protocolVersion="4", keepalive="30", cleansession=True)
-config("base", "ui-base", name="Projeto A4", path="/painel", appIcon="", includeClientData=False,
+config("base", "ui-base", name="Monitor de material particulado", path="/painel", appIcon="", includeClientData=False,
        acceptsClientConfig=["ui-notification", "ui-control"], showPathInSidebar=False, headerContent="page",
        navigationStyle="default", titleBarStyle="default", showReconnectNotification=True, showDisconnectNotification=True,
        allowInstall=False)
 config("theme", "ui-theme", name="Qualidade do ar",
        colors=dict(surface="#ffffff", primary="#00685c", bgPage="#eff5f3", groupBg="#ffffff", groupOutline="#d7e5df"),
        sizes=dict(density="default", pagePadding="12px", groupGap="12px", groupBorderRadius="12px", widgetGap="12px"))
-config("page", "ui-page", name="Projeto A4", ui=ids["base"], path="/ar", icon="air-filter", layout="grid",
+config("page", "ui-page", name="Monitor de material particulado", ui=ids["base"], path="/ar", icon="air-filter", layout="grid",
        theme=ids["theme"], order=1, className="", visible=True, disabled=False,
        breakpoints=[dict(name=n, px=p, cols=c) for n,p,c in
                     [("Default",0,3),("Tablet",576,6),("Small Desktop",768,9),("Desktop",1024,12)]])
@@ -53,9 +53,9 @@ node("button", "change", 485, 350, [["logic"]], name="Pedido de autoteste",
      action="", property="", from_="", to="", reg=False)
 node("publish", "mqtt out", 835, 230, [], name="Autoteste no tópico da sessão", topic="", qos="0",
      retain="false", respTopic="", contentType="", userProps="", correl="", expiry="", broker=ids["broker"])
-node("file", "file", 825, 295, [], name="Histórico de comandos (JSONL)", filename="a4-comandos.jsonl",
+node("file", "file", 825, 295, [], name="Histórico de comandos (JSONL)", filename="comandos-buzzer.jsonl",
      filenameType="str", appendNewline=True, createDir=False, overwriteFile="false", encoding="none")
-node("comment", "comment", 190, 75, [], name="A4 · Telemetria e controle remoto",
+node("comment", "comment", 190, 75, [], name="Telemetria e controle remoto",
      info="Importe em Node-RED com @flowfuse/node-red-dashboard instalado. O histórico de comandos é escrito no diretório de execução.")
 
 data = json.dumps(nodes, ensure_ascii=False, indent=2) + "\n"

@@ -23,39 +23,39 @@ FRAME OK n=19 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=20 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 WIFI OK ip=10.10.0.2
 FRAME OK n=21 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
-MQTT CONNACK OK client_id=a4-47db91f2-ac6f535a t=21390 ms
-MQTT COMANDO TOPICO obj-intelig-projeto/a4/47db91f2/command/a4-47db91f2-ac6f535a-1
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":1,"uptime_ms":21421,"unit":"ug/m3","sample_seq":21,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT CONNACK OK client_id=pm-47db91f2-ac6f535a t=21390 ms
+MQTT COMANDO TOPICO obj-intelig-projeto/pm/47db91f2/command/pm-47db91f2-ac6f535a-1
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":1,"uptime_ms":21421,"unit":"ug/m3","sample_seq":21,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=22 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=23 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=24 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=25 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=26 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":2,"uptime_ms":26427,"unit":"ug/m3","sample_seq":26,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":2,"uptime_ms":26427,"unit":"ug/m3","sample_seq":26,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=27 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=28 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=29 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=30 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=31 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":3,"uptime_ms":31435,"unit":"ug/m3","sample_seq":31,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":3,"uptime_ms":31435,"unit":"ug/m3","sample_seq":31,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=32 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=33 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=34 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=35 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=36 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":4,"uptime_ms":36440,"unit":"ug/m3","sample_seq":36,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":4,"uptime_ms":36440,"unit":"ug/m3","sample_seq":36,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=37 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=38 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=39 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=40 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=41 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":5,"uptime_ms":41454,"unit":"ug/m3","sample_seq":41,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":5,"uptime_ms":41454,"unit":"ug/m3","sample_seq":41,"pm1":10,"pm25":20,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=42 len=28 PM1.0=10 PM2.5=20 PM10=30 ug/m3
 FRAME OK n=43 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=44 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=45 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=46 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":6,"uptime_ms":46466,"unit":"ug/m3","sample_seq":46,"pm1":10,"pm25":45,"pm10":45,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":6,"uptime_ms":46466,"unit":"ug/m3","sample_seq":46,"pm1":10,"pm25":45,"pm10":45,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=47 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 PILOT ACT id=4301 session=1 level=1 before_us=47330621 after_us=47330636
 BUZZER=ON PM2.5=45 freq=4000 Hz t=47333 ms
@@ -66,7 +66,7 @@ FRAME OK n=48 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=49 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=50 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=51 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
-MQTT TELEMETRY obj-intelig-projeto/a4/47db91f2/telemetry {"version":"a4-2a-autoteste","client_id":"a4-47db91f2-ac6f535a","seq":7,"uptime_ms":51476,"unit":"ug/m3","sample_seq":51,"pm1":10,"pm25":45,"pm10":45,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+MQTT TELEMETRY obj-intelig-projeto/pm/47db91f2/telemetry {"version":"pm-autoteste","client_id":"pm-47db91f2-ac6f535a","seq":7,"uptime_ms":51476,"unit":"ug/m3","sample_seq":51,"pm1":10,"pm25":45,"pm10":45,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 FRAME OK n=52 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=53 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3
 FRAME OK n=54 len=28 PM1.0=10 PM2.5=45 PM10=45 ug/m3

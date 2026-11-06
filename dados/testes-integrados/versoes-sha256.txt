@@ -1,3 +1,0 @@
-ab4eb52458db15d02a124e8d87210b0e0f954e0bf015444aa19e7a8b1f757225  sketch.ino
-26b5e153d686fe1bae51a6807d44f8a8629de9af3a3c3d6da084e9c59e3b0052  sketch-ensaio-rede.ino
-11a735eadf2755afd0507f009cae09ce0c1fd30fa4a052de0934d57fc5837dcb  A4-Fluxo-Node-RED.json

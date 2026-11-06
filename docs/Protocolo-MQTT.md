@@ -1,6 +1,6 @@
 # Protocolo MQTT e ensaios de falha
 
-O firmware usa MQTT 3.1.1 sobre TCP/IP em `broker.emqx.io:1883`. Os tópicos abaixo são relativos ao prefixo `obj-intelig-projeto/a4/47db91f2`. O broker é público e a porta 1883 usa TCP sem criptografia. A demonstração trafega apenas valores simulados e comandos de autoteste. [EMQX público](https://www.emqx.com/en/mqtt/public-mqtt5-broker)
+O firmware usa MQTT 3.1.1 sobre TCP/IP em `broker.emqx.io:1883`. Os tópicos abaixo são relativos ao prefixo `obj-intelig-projeto/pm/47db91f2`. O broker é público e a porta 1883 usa TCP sem criptografia. A demonstração trafega apenas valores simulados e comandos de autoteste. [EMQX público](https://www.emqx.com/en/mqtt/public-mqtt5-broker)
 
 | Tópico | Origem | QoS e retenção |
 | --- | --- | --- |
@@ -13,22 +13,22 @@ O firmware usa MQTT 3.1.1 sobre TCP/IP em `broker.emqx.io:1883`. Os tópicos aba
 O anúncio abaixo associa o dispositivo a um tópico de comando. Após a reconexão, o firmware incrementa a sessão, anuncia um tópico novo e reinicia a sequência de IDs de comando.
 
 ```json
-{"client_id":"a4-47db91f2-69429b3a","online":true,"session":1,"command_topic":"obj-intelig-projeto/a4/47db91f2/command/a4-47db91f2-69429b3a-1"}
+{"client_id":"pm-47db91f2-69429b3a","online":true,"session":1,"command_topic":"obj-intelig-projeto/pm/47db91f2/command/pm-47db91f2-69429b3a-1"}
 ```
 
 O Last Will anuncia a perda da conexão.
 
 ```json
-{"client_id":"a4-47db91f2-69429b3a","online":false}
+{"client_id":"pm-47db91f2-69429b3a","online":false}
 ```
 
 Uma mensagem de telemetria indica a sequência da publicação (`seq`), a sequência da amostra (`sample_seq`), as três concentrações e o estado da saída.
 
 ```json
-{"version":"a4-2a-autoteste","client_id":"a4-47db91f2-69429b3a","seq":5,"uptime_ms":23292,"unit":"ug/m3","sample_seq":23,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
+{"version":"pm-autoteste","client_id":"pm-47db91f2-69429b3a","seq":5,"uptime_ms":23292,"unit":"ug/m3","sample_seq":23,"pm1":10,"pm25":25,"pm10":30,"sample_valid":true,"alert":false,"test_active":false,"buzzer_on":false}
 ```
 
-Após 5 s sem quadro válido, o ESP32 publica `sample_valid:false` e deixa `sample_seq`, `pm1`, `pm25` e `pm10` como `null`. O painel mostra **Sem leitura válida** enquanto recebe mensagens do ESP32. Depois de 15 s sem telemetria recente, oculta os valores e desabilita o comando.
+Após 5 s sem pacote válido, o ESP32 publica `sample_valid:false` e deixa `sample_seq`, `pm1`, `pm25` e `pm10` como `null`. O painel mostra **Sem leitura válida** enquanto recebe mensagens do ESP32. Depois de 15 s sem telemetria recente, oculta os valores e desabilita o comando.
 
 O payload do autoteste é `test,ID,DURACAO_MS`. Os IDs são inteiros positivos e crescentes dentro da sessão. O firmware aceita durações de 100 a 1.500 ms. Um autoteste pode manter o buzzer ligado durante seu intervalo. Ao terminar, o estado volta a depender da validade da amostra e do limiar de PM2.5.
 
@@ -37,7 +37,7 @@ test,1793842074,1000
 ```
 
 ```json
-{"client_id":"a4-47db91f2-69429b3a","session":1,"id":1793842074,"state":"finished","duration_ms":1000,"uptime_ms":11973,"alert":false,"buzzer_on":false}
+{"client_id":"pm-47db91f2-69429b3a","session":1,"id":1793842074,"state":"finished","duration_ms":1000,"uptime_ms":11973,"alert":false,"buzzer_on":false}
 ```
 
 ## Falha controlada de rede
@@ -46,4 +46,4 @@ Carregue os cinco arquivos de [`firmware/teste-rede/`](../firmware/teste-rede/) 
 
 Se o Wokwi permanecer na conexão Wi-Fi, reinicie o simulador e confirme `MQTT CONNACK OK` na serial. Se um ensaio receber telemetria de um dispositivo novo enquanto a presença retida ainda indica a desconexão da sessão anterior, pare a simulação e aguarde a confirmação de desconexão antes de abrir a próxima sessão. Essa ocorrência e os dados da partida excluída estão em [`dados/medicoes/partidas.md`](../dados/medicoes/partidas.md).
 
-As capturas e os logs do ensaio funcional estão em [`dados/testes-integrados/`](../dados/testes-integrados/). O diagnóstico anterior ao uso do EMQX está em [`A4-Diagnostico-Brokers.md`](A4-Diagnostico-Brokers.md).
+As capturas e os logs do ensaio funcional estão em [`dados/testes-integrados/`](../dados/testes-integrados/). O diagnóstico anterior ao uso do EMQX está em [`Diagnostico-Brokers.md`](Diagnostico-Brokers.md).
