@@ -58,22 +58,38 @@ O GPIO18 está reservado como TX da UART1. A montagem usa apenas o envio do sens
 
 ## Executar a demonstração
 
-1. Abra um projeto ESP32-S3 no Wokwi. No editor do diagrama, adicione um **Custom Chip** em C com o nome `pms5003` para criar as abas do chip. Coloque nas abas os cinco arquivos da pasta [`firmware/demonstracao/`](firmware/demonstracao/) e inicie a simulação. O monitor serial registra `WIFI OK` e `MQTT CONNACK OK` quando as conexões são abertas. [Chips personalizados](https://docs.wokwi.com/chips-api/getting-started) · [Wi-Fi no Wokwi](https://docs.wokwi.com/guides/esp32-wifi)
-2. Em uma instalação do Node-RED, instale o FlowFuse Dashboard (`@flowfuse/node-red-dashboard`). Use **Import** para carregar [`node-red/flows.json`](node-red/flows.json), clique em **Deploy** e abra [localhost:1880/painel/ar](http://localhost:1880/painel/ar) na porta padrão. [Instalação do FlowFuse Dashboard](https://dashboard.flowfuse.com/getting-started.html)
-3. Aguarde o painel indicar **ESP32 · Online**. No controle do PMS5003, teste 25, 50 e 51 µg/m³ de PM2.5. O buzzer só entra em alerta automático acima de 50 µg/m³. Volte a 25 µg/m³ e clique em **Testar buzzer · 1 s**. Compare o ID de envio, início e conclusão no painel e na serial.
-4. Para testar o sensor, use o controle **Falha**. O modo 1 corrompe o checksum, o modo 2 suspende os pacotes e o modo 0 restaura a transmissão. O painel diferencia uma amostra inválida com o ESP32 online da perda de conexão.
+### Preparar o Windows e abrir o painel
 
-O Node-RED também pode ser iniciado com as versões fixadas no repositório. Execute na pasta raiz, com Node.js 24 e pnpm 11.25.0 instalados. O arquivo `pnpm-workspace.yaml` dispensa apenas o script de pós-instalação informativo do `core-js`; os pacotes continuam instalados conforme o lockfile.
+1. No GitHub, clique em **Code → Download ZIP** e extraia o arquivo em uma pasta local. É preciso ter um navegador e acesso à internet para abrir o Wokwi, baixar as dependências e alcançar o broker público `broker.emqx.io` na porta TCP 1883.
+2. Instale o **Node.js 24 LTS** pelo instalador `.msi` do Windows, com npm e a opção de adicionar o Node.js ao PATH. Depois da instalação, abra uma nova janela do **PowerShell** pelo menu Iniciar. [Instalador do Node.js 24](https://nodejs.org/en/download/archive/v24)
+3. Confira o Node.js e o npm e instale a versão do pnpm usada pelo projeto. A extensão `.cmd` seleciona o executável de comandos do Windows no PowerShell. [Instalação do pnpm](https://pnpm.io/installation)
+
+```powershell
+node --version
+npm.cmd --version
+npm.cmd install --global pnpm@11.25.0
+pnpm.cmd --version
+```
+
+No Explorador de Arquivos, abra a pasta extraída que contém o README e a subpasta `node-red`. Digite `powershell` na barra de endereço e pressione Enter. Na janela que abrir, execute os comandos abaixo.
 
 ```powershell
 Set-Location node-red
-pnpm install --frozen-lockfile
-pnpm exec node-red --userDir . --settings settings.js
+pnpm.cmd install --frozen-lockfile
+pnpm.cmd exec node-red --userDir . --settings settings.js
 ```
 
-Essa configuração abre o editor em [127.0.0.1:1889](http://127.0.0.1:1889/) e o painel em [127.0.0.1:1889/painel/ar](http://127.0.0.1:1889/painel/ar). O fluxo grava os comandos em `comandos-buzzer.jsonl` na pasta de execução. As versões registradas no ensaio foram Arduino-ESP32 3.3.12, ESP-IDF 5.5.5, Node.js 24.22.1, Node-RED 4.1.6 e FlowFuse Dashboard 1.32.0. As versões de PubSubClient, Adafruit GFX e Adafruit SSD1306 estão em [`libraries.txt`](firmware/demonstracao/libraries.txt).
+A instalação baixa o Node-RED e o FlowFuse Dashboard nas versões do projeto. A configuração já carrega o fluxo `flows.json`. Deixe o terminal aberto e acesse o [painel em 127.0.0.1:1889/painel/ar](http://127.0.0.1:1889/painel/ar). Para ver os blocos que processam as mensagens, abra o [editor do Node-RED](http://127.0.0.1:1889/).
 
-Se a porta 1889 já estiver em uso, acrescente `--port 1891` ao comando de execução e abra o painel em `http://127.0.0.1:1891/painel/ar`.
+Para encerrar, pressione **Ctrl+C** no terminal. Nos próximos usos, abra o PowerShell na pasta `node-red` e repita o comando de execução. Se a porta 1889 estiver ocupada, acrescente `--port 1891` ao comando de execução e abra o [painel na porta 1891](http://127.0.0.1:1891/painel/ar).
+
+### Rodar o circuito e testar a comunicação
+
+1. Abra um projeto ESP32-S3 no Wokwi. No editor do diagrama, adicione um **Custom Chip** em C com o nome `pms5003` para criar as abas do chip. Coloque nas abas os cinco arquivos da pasta [`firmware/demonstracao/`](firmware/demonstracao/) e inicie a simulação. O monitor serial registra `WIFI OK` e `MQTT CONNACK OK` quando as conexões são abertas. [Chips personalizados](https://docs.wokwi.com/chips-api/getting-started) · [Wi-Fi no Wokwi](https://docs.wokwi.com/guides/esp32-wifi)
+2. Aguarde o painel indicar **ESP32 · Online**. No controle do PMS5003, teste 25, 50 e 51 µg/m³ de PM2.5. O buzzer só entra em alerta automático acima de 50 µg/m³. Volte a 25 µg/m³ e clique em **Testar buzzer · 1 s**. Compare o ID de envio, início e conclusão no painel e na serial.
+3. Para testar o sensor, use o controle **Falha**. O modo 1 corrompe o checksum, o modo 2 suspende os pacotes e o modo 0 restaura a transmissão. O painel diferencia uma amostra inválida com o ESP32 online da perda de conexão.
+
+O fluxo grava os comandos em `comandos-buzzer.jsonl` na pasta de execução. As versões registradas no ensaio foram Arduino-ESP32 3.3.12, ESP-IDF 5.5.5, Node.js 24.22.1, Node-RED 4.1.6 e FlowFuse Dashboard 1.32.0. As versões de PubSubClient, Adafruit GFX e Adafruit SSD1306 estão em [`libraries.txt`](firmware/demonstracao/libraries.txt).
 
 A [validação da integração](docs/Validacao-Integracao.md) registra a instalação, os casos conferidos e as evidências.
 
